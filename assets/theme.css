@@ -1,0 +1,130 @@
+
+:root {
+/* Font sizes */
+--font-size-h1: 134px;
+--font-size-h2: 40px;
+--font-size-h3: 26px;
+
+--font-size-body-large: 18px;
+--font-size-body: 14px;
+--font-size-body-small: 12px;
+
+/* Line heights */
+--line-height-body: 1.2;
+--line-height-title: 1.05;
+
+/* Letter spacing */
+--letter-spacing-tight: -0.025px;
+--letter-spacing-normal: 0;
+
+/* Color */
+--color-neutral-0: #fff;
+--color-bg: #E9E9E9;
+--color-bg-hover: #D6D6D6;
+--color-neutral-40: #A8A8A8;
+--color-neutral-50: #777;
+--color-contrast: #000000;
+
+--color-alpha--30: #fff, 0.3;
+--color-alpha--60: #fff, 0.6;
+--color-alpha--90: #fff, 0.9;
+
+--color-pink-light: #DCADED;
+--color-pink: #C44BA1 ;
+--color-pink-strong: #923088 ;
+
+--color-yellow-light: #DAF18C ;
+--color-yellow: #C4E651 ;
+--color-yellow-strong: #9FA46D ;
+
+--color-orange-light: #F2A59A ;
+--color-orange: #DC7E70 ;
+--color-orange-strong: #9A7070 ;
+
+--color-green-light: #B4EB8D ;
+--color-green: #99D576 ;
+--color-green-strong: #8B9E7D ;
+
+--color-aqua-light: #9CEEED ;
+--color-aqua: #78E7E5 ;
+--color-aqua-strong: #6B8D8C ;
+
+--color-blue-light: #7DC6F9 ;
+--color-blue: #50A3F2 ;
+--color-blue-strong: #2A6095 ;
+
+--color-purple-light: #B3B5E9 ;
+--color-purple: #504EC0 ;
+--color-purple-strong: #4636AF ;
+
+/* Space */
+--space-xs: 5px;
+--space-sm: 15px;
+--space-md: 30px;
+--space-lg: 40px;
+--space-xl: 60px;
+--space-xxl: 100px;
+
+--space-page-margin: 60px;
+--space-gutter: 16px;
+}
+
+/* Global Styles */
+body { 
+    color: var(--color-contrast);
+    background-color: var(--color-bg);
+    margin: 0;
+}
+
+/* Font Declarations */
+@font-face {
+font-display: swap;
+font-family: 'Helvetica Now Display';
+font-style: normal;
+font-weight: 400;
+src: url('./helvetica-now-display-v1-latin-400.woff2') format('woff2'), /* Super Modern Browsers */
+        url('./helvetica-now-display-v1-latin-400.woff') format('woff'), /* Modern Browsers */
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Helvetica Now Display';
+font-style: normal;
+font-weight: 500;
+src: url('./helvetica-now-display-v1-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+        url('./helvetica-now-display-v1-latin-500.woff') format('woff'), /* Modern Browsers */
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Helvetica Now Display';
+font-style: normal;
+font-weight: 700;
+src: url('./helvetica-now-display-v1-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('./helvetica-now-display-v1-latin-700.woff') format('woff'), /* Modern Browsers */
+}
+@font-face {
+    font-family: 'CB Wider';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./CBWider.woff2') format('woff2'), /* Super Modern Browsers */
+            url('./CBWider.woff') format('woff'), /* Modern Browsers */
+    }
+/* Type Styles */
+h1 {
+    font-family: "CB Wider", sans-serif;
+    font-weight: 700;
+
+}
+h2, h3 {
+font-family: "Helvetica Now Display", sans-serif;
+font-weight: 400;
+}
+
+/* Grid Styles */
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: var(--space-gutter);
+    padding: 0 var(--space-page-margin);
+  }
