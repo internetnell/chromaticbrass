@@ -8,7 +8,28 @@
   "market": [],
   "order": [],
   "page": [],
-  "product": [],
+  "product": [
+    {
+      "key": "cover_image",
+      "namespace": "custom",
+      "name": "Cover Image",
+      "description": "Product cover image that will only show on the shop page",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "shop_page_tagline",
+      "namespace": "custom",
+      "name": "Shop Page Tagline",
+      "description": "Single line of text that will display on the shop listing page",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "variant": [],
   "shop": []
 }
