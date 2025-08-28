@@ -1,0 +1,12 @@
+{% comment %}
+Usage:
+  {% render 'icon', icon: 'cart', class: 'w-6 h-6 text-red-500' %}
+{% endcomment %}
+
+{% case icon %}
+  {% when 'arrow-up-right' %}
+    {% render 'icon-arrow-up-right', class: class %}
+  {% else %}
+    <!-- fallback: no icon -->
+{% endcase %}
+
