@@ -1,0 +1,123 @@
+<style>
+.event {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-contrast);
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.leading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.top-left p, .top-right p {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-contrast);
+}
+.top-left, .top-right {
+    width: 50%;
+}
+.top-right {
+    text-align: right;
+}
+</style>
+    
+
+{% for block in section.blocks %}
+
+<a  href="{{ block.settings.event-link }}" 
+    class="event">
+        <div class="leading">
+            <div class="top-left">
+                <p class="day">{{ block.settings.day }}</p>
+                <p class="date">{{ block.settings.date }}</p>
+            </div>
+
+            <div class="top-right">
+                <p class="time">{{ block.settings.time }}</p>
+                <p class="location">{{ block.settings.location }}</p>
+            </div>
+        </div>
+
+        <div class="title-group">
+            <h3 class="title">{{ block.settings.title }}</h3>
+            <p class="description p-small"> {{ block.settings.description }}</p>
+        </div>
+ </a>
+
+{% endfor %}
+
+
+
+
+{% schema %}
+{
+  "name": "Events Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Event Title",
+          "default": "Sample Event"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Event Description",
+          "default": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment."
+        },
+        {
+          "type": "text",
+          "id": "day",
+          "label": "Day of Event",
+          "default": "Friday"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "Feb 17"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time",
+          "default": "1:00 PM EST"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "San Francisco"
+        },
+        {
+          "type": "url",
+          "id": "event-link",
+          "label": "Event url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Events Section",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "event"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 
