@@ -27,14 +27,14 @@
     grid-column: 1 / span 4;
   }
   .events-list {
+    grid-column: 5 / span 12;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
     gap: 0;
   }
-  .event-card-wrapper {
-    
-    aspect-ratio: 1 / 1;
+  .event {
+    width: 30%;
     box-sizing: border-box;
   }
 </style>
@@ -54,9 +54,7 @@
     <h3>Upcoming events</h3>
 
     <div class="events-list">
-        <div class="event-card-wrapper">
             {% section 'event-card' %}
-        </div>
 
       {% comment %} <a class="events-button" href="#events">
         <span>
