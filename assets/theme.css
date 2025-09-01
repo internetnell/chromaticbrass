@@ -145,16 +145,29 @@ p {
 }
 
 .p-small {
-font-family: "Helvetica Now Display", sans-serif;
+        font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
         font-style: normal;
         font-size: var(--font-size-body-small);
         margin: 0;
         color: var(--color-contrast);
 }
+
 .icon {
         display: inline-block;
         color: var(--color-contrast);
+}
+
+.link {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        color: var(--color-contrast);
+        text-decoration: underline;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
 }
 
 /* Grid Styles */

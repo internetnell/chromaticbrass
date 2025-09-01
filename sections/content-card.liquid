@@ -1,0 +1,79 @@
+<style>
+.content-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--color-contrast);
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+</style>
+    
+
+{% for block in section.blocks %}
+
+<div class="content-card">
+    
+            <div class="top">
+                <h3 class="title">{{ block.settings.title }}</h3>
+            </div>
+
+        <div class="trailing-group">
+            <p class="description">{{ block.settings.description }}</p>
+            <a class="link">Book {{ block.settings.link }}</a>
+        </div>
+</div>
+
+{% endfor %}
+
+
+
+
+{% schema %}
+{
+  "name": "Content Card Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sample Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

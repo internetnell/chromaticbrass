@@ -38,6 +38,26 @@
   .event .event-list {
     width: 100%;
   }
+
+    /* ---------------- Work with us ----------------*/
+  .work-with-us {
+    margin-top: var(--space-xl);
+  }
+  .work-with-us-title {
+    grid-column: 1 / span 4;
+  }
+  #shopify-section-content-card {
+  display: contents;
+  }
+  .content-card-list {
+    grid-column: 5 / span 12;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+  }
+  .content-card-list {
+    width: 100%;
+  }
 </style>
 
 <main>
@@ -74,4 +94,20 @@
 
     </div>
   </section>
+
+  <section class="image-row-1">
+  </section>
+
+
+  <section class="work-with-us container">
+    <div class="work-with-us-title">
+        <h3>Work with us</h3>
+        <p> Learn more about our mission and how you can get involved.</p>
+    </div>
+
+    <div class="content-card-list">
+            {% section 'content-card' %}
+    </div>
+  </section>
+
 </main>
