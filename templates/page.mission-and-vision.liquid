@@ -1,6 +1,100 @@
+<style>
+.page-title h1{
+    grid-column: 1 / span 16;
+    margin-bottom: var(--space-xxl);
+}
+#shopify-section-mission-statement{
+grid-column: 1 / span 12;
+}
+/* ---------------- IMG ROW 1 ----------------*/
+  .image-row-1 {
+    margin-top: var(--space-xl);
+  }
+
+  .img-col-2 {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+  }
+  .img-col-4 {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+  }
+
+</style>
 
 <main>
 
-    {{ section 'page-title' }}
 
-</main>
+
+    <section class="page-title container">
+        <h1> Mission & Vision</h1>
+        
+        {% section 'mission-statement' %}
+
+    </section>
+
+     <section class="image-row-1 container">
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-1.png?v=1756771221"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-2.png?v=1756771221"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-1.png?v=1756771221"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-1.png?v=1756771220"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-4"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-2.png?v=1756771221"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-2.png?v=1756771220"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+
+            <img
+            class="img-col-2"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-3.png?v=1756771221"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto"
+            >
+        </section>
+
+
+
+
+
+    </main>

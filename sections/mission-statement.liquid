@@ -1,0 +1,22 @@
+
+  <h2 class="mission-statement">{{ section.settings.mission_text }}</h2>
+
+
+{% schema %}
+{
+  "name": "Page description",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Description",
+      "default": "We envision a musical landscape led by community and empathy in a world free of systemic hierarchy, where women and gender non-conforming brass musicians of color have boundless opportunities for personal and professional growth."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page description"
+    }
+  ]
+}
+{% endschema %}

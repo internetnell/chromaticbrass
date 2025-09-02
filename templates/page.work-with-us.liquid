@@ -1,0 +1,41 @@
+<style>
+.page-title h1{
+    grid-column: 1 / span 16;
+    margin-bottom: var(--space-xxl);
+}
+#shopify-section-mission-statement{
+grid-column: 1 / span 12;
+margin-bottom: var(--space-xxl);
+}
+  /* ---------------- Content Cards ----------------*/
+
+  #shopify-section-content-card {
+    display: contents;
+  }
+  .content-card-list {
+    grid-column: 1 / span 16;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .content-card-list {
+    width: 100%;
+  }
+
+</style>
+
+
+<main>
+    <section class="page-title container">
+        <h1> Work with us</h1>
+        
+        {% section 'mission-statement' %}
+
+    </section>
+
+    <section class="container">
+      <div class="content-card-list">
+        {% section 'content-card' %}
+      </div>
+    </section>
+
+</main>

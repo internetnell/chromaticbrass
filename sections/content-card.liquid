@@ -1,5 +1,5 @@
 <style>
-.content-card {
+  .content-card {
     display: flex;
     flex-direction: column;
     padding: var(--space-md);
@@ -8,33 +8,33 @@
     aspect-ratio: 1 / 1;
     background-color: var(--color-neutral-0);
     border: 1px solid var(--color-bg);
-}
-.top {
+  }
+  .top {
     display: flex;
     flex-direction: row;
     width: 100%;
-}
+  }
+  .description{
+  margin-bottom: var(--space-xs);
+  }
 </style>
-    
 
 {% for block in section.blocks %}
+  <div class="content-card">
+    <div class="top">
+      <h3 class="title">{{ block.settings.title }}</h3>
+    </div>
 
-<div class="content-card rand-hover">
-    
-            <div class="top">
-                <h3 class="title">{{ block.settings.title }}</h3>
-            </div>
-
-        <div class="trailing-group">
-            <p class="p-small description">{{ block.settings.description }}</p>
-            <a class="link">Book {{ block.settings.link }}</a>
-        </div>
-</div>
-
+    <div class="trailing-group">
+      <p class="p-small description">{{ block.settings.description }}</p>
+      {% if block.settings.show_link and block.settings.link %}
+        <a class="link" href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+          {{ block.settings['link-text'] | default: 'Learn more' }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
 {% endfor %}
-
-
-
 
 {% schema %}
 {
@@ -58,6 +58,18 @@
           "default": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
         },
         {
+          "type": "checkbox",
+          "id": "show_link",
+          "label": "Show link",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "link-text",
+          "label": "Link",
+          "default": "Book"
+        },
+        {
           "type": "url",
           "id": "link",
           "label": "url"
@@ -77,4 +89,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}

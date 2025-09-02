@@ -1,6 +1,6 @@
 :root {
         /* Font sizes */
-        --font-size-h1: 134px;
+        --font-size-h1: 100px;
         --font-size-h2: 32px;
         --font-size-h3: 26px;
 
@@ -9,8 +9,8 @@
         --font-size-body-small: 12px;
 
         /* Line heights */
-        --line-height-body: 1.2;
-        --line-height-title: 1.05;
+        --line-height-body: 1.4;
+        --line-height-title: 1.12;
 
         /* Letter spacing */
         --letter-spacing-tight: -0.025px;
@@ -122,7 +122,9 @@ h1 {
         font-family: "CB Wider", sans-serif;
         font-weight: 700;
         margin: 0;
+        font-size: var(--font-size-h1);
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 
 h2 {
@@ -131,6 +133,7 @@ h2 {
         font-size: var(--font-size-h2);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 h3 {
         font-family: "Helvetica Now Display", sans-serif;
@@ -138,6 +141,7 @@ h3 {
         font-size: var(--font-size-h3);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 .h2 {
         font-family: "Helvetica Now Display", sans-serif;
@@ -145,6 +149,7 @@ h3 {
         font-size: var(--font-size-h2);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 .h3 {
         font-family: "Helvetica Now Display", sans-serif;
@@ -152,6 +157,7 @@ h3 {
         font-size: var(--font-size-h3);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 
 p {
@@ -161,12 +167,15 @@ p {
         font-size: var(--font-size-body);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
+
 }
 
 body {
         color: var(--color-contrast);
         background-color: var(--color-bg);
         margin: 0;
+        line-height: var(--line-height-body);
 }
 .p-small {
         font-family: "Helvetica Now Display", sans-serif;
@@ -175,6 +184,7 @@ body {
         font-size: var(--font-size-body-small);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
 .p-large {
         font-family: "Helvetica Now Display", sans-serif;
@@ -183,6 +193,7 @@ body {
         font-size: var(--font-size-body-large);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
 .link {
         font-family: "Helvetica Now Display", sans-serif;
@@ -194,6 +205,7 @@ body {
         margin: 0;
         padding: 0;
         cursor: pointer;
+        line-height: var(--line-height-body);
 }
 .icon {
         display: inline-block;
