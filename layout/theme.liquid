@@ -1,17 +1,19 @@
-<html>
-  <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-      <head>
-        {{ content_for_header }}
-        {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
-      </head>
+  <head>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  </head>
 
-      <body>
-        {%  section 'nav' %}
-        {{ content_for_layout }}
-        {% section 'footer' %}
-      </body>
-      
-    </html>
+  <body>
+    {%  section 'nav' %}
+    {{ content_for_layout }}
+    {% section 'footer' %}
+
+    <script src="{{ 'random-hover.js' | asset_url }}" defer></script>
+
+  </body>
+
+
 </html>
