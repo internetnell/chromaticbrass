@@ -8,6 +8,10 @@
         --font-size-body: 14px;
         --font-size-body-small: 12px;
 
+        --font-size-label-large: 18px;
+        --font-size-label: 16px;
+        --font-size-label-small: 14px;
+
         /* Line heights */
         --line-height-body: 1.4;
         --line-height-title: 1.12;
@@ -62,7 +66,8 @@
 
 
         /* Space */
-        --space-xs: 5px;
+        --space-xxs: 5px;
+        --space-xs: 10px;
         --space-sm: 15px;
         --space-md: 30px;
         --space-lg: 35px;
@@ -83,6 +88,14 @@
                 /* Super Modern Browsers */
                 url('./helvetica-now-display-v1-latin-400.woff') format('woff'),
                 /* Modern Browsers */
+}
+
+@font-face {
+        font-display: swap;
+        font-family: 'Pragati';
+        font-style: normal;
+        font-weight: 400;
+        src: url('./pragati.woff2') format('woff2'),
 }
 
 @font-face {
@@ -118,6 +131,7 @@
 }
 
 /* Type Styles */
+/********* Headings *********/
 h1 {
         font-family: "CB Wider", sans-serif;
         font-weight: 700;
@@ -135,6 +149,7 @@ h2 {
         color: var(--color-contrast);
         line-height: var(--line-height-title);
 }
+
 h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -143,6 +158,7 @@ h3 {
         color: var(--color-contrast);
         line-height: var(--line-height-title);
 }
+
 .h2 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -151,6 +167,7 @@ h3 {
         color: var(--color-contrast);
         line-height: var(--line-height-title);
 }
+
 .h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -160,6 +177,7 @@ h3 {
         line-height: var(--line-height-title);
 }
 
+/********* Body *********/
 p {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -168,7 +186,16 @@ p {
         margin: 0;
         color: var(--color-contrast);
         line-height: var(--line-height-body);
+}
 
+.p {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
 
 body {
@@ -177,6 +204,7 @@ body {
         margin: 0;
         line-height: var(--line-height-body);
 }
+
 .p-small {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -186,6 +214,7 @@ body {
         color: var(--color-contrast);
         line-height: var(--line-height-body);
 }
+
 .p-large {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -195,6 +224,20 @@ body {
         color: var(--color-contrast);
         line-height: var(--line-height-body);
 }
+
+/********* Label *********/
+.label {
+        font-family: "Pragati", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-label);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-body);
+}
+
+/********* Links *********/
+
 .link {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -207,6 +250,7 @@ body {
         cursor: pointer;
         line-height: var(--line-height-body);
 }
+
 .icon {
         display: inline-block;
         color: var(--color-contrast);
@@ -222,24 +266,44 @@ body {
 
 /* Card random hover styles */
 .rand-hover:hover {
-  background: var(--hover-bg, var(--color-bg-hover));
-  border-radius: 999px;
-  border: 1px solid transparent;
+        background: var(--hover-bg, var(--color-bg-hover));
+        border-radius: 999px;
+        border: 1px solid transparent;
 }
 
 /* Download Button */
 .download-button {
-border: 1px solid var(--color-contrast);
-font-family: "Helvetica Now Display", sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: var(--font-size-body);
-margin: 0;
-color: var(--color-contrast);
-text-decoration: none;
-padding: 10px var(--space-sm);
-border-radius: var(--radius-lg);
+        border: 1px solid var(--color-contrast);
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        margin: 0;
+        color: var(--color-contrast);
+        text-decoration: none;
+        padding: 10px var(--space-sm);
+        border-radius: var(--radius-lg);
 }
+
 .download-button:hover {
-  background: var(--color-neutral-0);
+        background: var(--color-neutral-0);
+}
+
+/* Forms */
+input {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-neutral-0);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-neutral-0);
+        width: 100%;
+}
+
+.form-label {
+        font-family: "Pragati", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-label);
+        color: var(--color-neutral-50);
+        line-height: var(--line-height-body);
+        margin: var(--space-xs) 0 var(--space-xs) var(--space-sm);
 }

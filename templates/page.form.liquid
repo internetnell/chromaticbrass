@@ -1,18 +1,23 @@
 <style>
+  .form-wrapper {
+    grid-column: 1 / span 16;
+  }
 
-.form-wrapper{
-grid-column: 1 / span 16;
+  h2 {
+    grid-column: 1 / span 16;
+    grid-row: 1;
+    margin: var(--space-xxl) 0;
+  }
+
+  .form-wrapper {
+    grid-column: 1 / span 8;
+  }
+
+
+form {
+    grid-column: 1 / span 8;
 }
 
-h2 {
-  grid-column: 1 / span 16;
-  grid-row: 1;
-  margin: var(--space-xxl) 0;
-}
-
-.form-wrapper{
-  grid-column: 1 / span 8;
-}
 </style>
 
 <section class="form-wrapper container">
@@ -25,6 +30,7 @@ h2 {
       >Full name</label
     >
     <input
+      class="p"
       type="text"
       id="name"
       name="name"
@@ -38,6 +44,7 @@ h2 {
       >Email</label
     >
     <input
+      class="p"
       type="email"
       id="email"
       name="email"
@@ -51,6 +58,7 @@ h2 {
       >Request information</label
     >
     <textarea
+      class="p"
       id="request"
       name="request"
       rows="5"
