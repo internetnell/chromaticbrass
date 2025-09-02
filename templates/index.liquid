@@ -27,7 +27,7 @@
     grid-column: 1 / span 4;
   }
   #shopify-section-event-card {
-  display: contents;
+    display: contents;
   }
   .events-list {
     grid-column: 5 / span 12;
@@ -39,7 +39,23 @@
     width: 100%;
   }
 
-    /* ---------------- Work with us ----------------*/
+  /* ---------------- IMG ROW 1 ----------------*/
+  .image-row-1 {
+    margin-top: var(--space-xl);
+  }
+
+  .img-col-2 {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+  }
+  .img-col-4 {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---------------- Work with us ----------------*/
   .work-with-us {
     margin-top: var(--space-xl);
   }
@@ -47,7 +63,7 @@
     grid-column: 1 / span 4;
   }
   #shopify-section-content-card {
-  display: contents;
+    display: contents;
   }
   .content-card-list {
     grid-column: 5 / span 12;
@@ -75,39 +91,93 @@
     <h3>Upcoming events</h3>
 
     <div class="events-list">
-            {% section 'event-card' %}
+      {% section 'event-card' %}
 
-      {% comment %} <a class="events-button" href="#events">
-        <span>
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-          >
-            <path d="M17.5 16H15.5V3.41406L1.70703 17.207L0.292969 15.793L14.0859 2H1.5V0H17.5V16Z"/>
-          </svg>
-        </span>
-        View All
-      </a> {% endcomment %}
-
+      {% comment %}
+        <a class="events-button" href="#events">
+          <span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+            >
+              <path d="M17.5 16H15.5V3.41406L1.70703 17.207L0.292969 15.793L14.0859 2H1.5V0H17.5V16Z"/>
+            </svg>
+          </span>
+          View All
+        </a>
+      {% endcomment %}
     </div>
   </section>
 
-  <section class="image-row-1">
-  </section>
+  <section class="image-row-1 container">
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-1.png?v=1756771221"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
 
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-2.png?v=1756771221"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-1.png?v=1756771221"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-1.png?v=1756771220"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-4"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-2.png?v=1756771221"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-2.png?v=1756771220"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-3.png?v=1756771221"
+      alt="Player performing in a concert"
+      width="auto"
+      height="auto"
+    >
+  </section>
 
   <section class="work-with-us container">
     <div class="work-with-us-title">
-        <h3>Work with us</h3>
-        <p> Learn more about our mission and how you can get involved.</p>
+      <h3>Work with us</h3>
+      <p>Learn more about our mission and how you can get involved.</p>
     </div>
 
     <div class="content-card-list">
-            {% section 'content-card' %}
+      {% section 'content-card' %}
     </div>
   </section>
-
 </main>
