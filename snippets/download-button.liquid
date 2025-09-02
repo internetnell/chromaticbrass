@@ -1,0 +1,11 @@
+{%- assign btn_url = url | default: '#' -%}
+{%- assign btn_text = text | default: 'Button' -%}
+
+<a
+  href="{{ btn_url }}"
+  class="download-button"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {{ btn_text }}
+</a>

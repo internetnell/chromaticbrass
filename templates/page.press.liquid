@@ -1,24 +1,63 @@
 <style>
-/* ---------------- Article list ----------------*/
+  /* ---------------- Article list ----------------*/
 
-.article-wrapper {
+  .article-wrapper {
     margin-right: var(--space-page-margin);
     margin-left: var(--space-page-margin);
     margin-top: var(--space-xl);
     grid-column: 1 / span 16;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-#shopify-section-article-card {
+  }
+  #shopify-section-article-card {
     display: contents;
-}
-
+  }
+  /* ---------------- Press kit ----------------*/
+  .press-img-row {
+    margin-top: var(--space-xl);
+  }
+  .press-card {
+    grid-column: 1 / span 8;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    border: 1px solid var(--color-contrast);
+  }
+  .press-title-group {
+    width: 80%;
+  }
+  .press-img {
+    grid-column: 9 / span 8;
+    width: 100%;
+    height: auto;
+  }
 </style>
 
 <main>
-    <section class="article-wrapper">
+  <section class="article-wrapper">
+    {% section 'article-card' %}
+  </section>
 
-        {% section 'article-card' %}
+  <section class="press-img-row container">
+    <div class="press-card">
+      <div class="press-title-group">
+        <h2>Press Kit</h2>
+        <p>Download our press kit with logos, product images, and brand assets</p>
+      </div>
 
+      <div class="press-button">
+        {% render 'download-button', url: 'https://example.com', text: 'Download' %}
+      </div>
+    </div>
+
+    <img
+      class="press-img"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/press-kit-img.png?v=1756831787"
+      alt="Abstract image"
+      width="auto"
+      height="auto"
+    >
   </section>
 </main>

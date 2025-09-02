@@ -1,7 +1,7 @@
 :root {
         /* Font sizes */
         --font-size-h1: 134px;
-        --font-size-h2: 40px;
+        --font-size-h2: 32px;
         --font-size-h3: 26px;
 
         --font-size-body-large: 18px;
@@ -55,6 +55,11 @@
         --color-purple-light: #B3B5E9;
         --color-purple: #504EC0;
         --color-purple-strong: #4636AF;
+
+        /* Border radius */
+        --radius-lg: 50px;
+        --radius-round: 999px;
+
 
         /* Space */
         --space-xs: 5px;
@@ -120,10 +125,17 @@ h1 {
         color: var(--color-contrast);
 }
 
-h2,
+h2 {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h2);
+        margin: 0;
+        color: var(--color-contrast);
+}
 h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
+        font-size: var(--font-size-h3);
         margin: 0;
         color: var(--color-contrast);
 }
@@ -201,4 +213,21 @@ body {
   background: var(--hover-bg, var(--color-bg-hover));
   border-radius: 999px;
   border: 1px solid transparent;
+}
+
+/* Download Button */
+.download-button {
+border: 1px solid var(--color-contrast);
+font-family: "Helvetica Now Display", sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: var(--font-size-body);
+margin: 0;
+color: var(--color-contrast);
+text-decoration: none;
+padding: 10px var(--space-sm);
+border-radius: var(--radius-lg);
+}
+.download-button:hover {
+  background: var(--color-neutral-0);
 }
