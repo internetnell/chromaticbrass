@@ -68,13 +68,6 @@
         --space-gutter: 16px;
 }
 
-/* Global Styles */
-body {
-        color: var(--color-contrast);
-        background-color: var(--color-bg);
-        margin: 0;
-}
-
 /* Font Declarations */
 @font-face {
         font-display: swap;
@@ -134,6 +127,20 @@ h3 {
         margin: 0;
         color: var(--color-contrast);
 }
+.h2 {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h2);
+        margin: 0;
+        color: var(--color-contrast);
+}
+.h3 {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h3);
+        margin: 0;
+        color: var(--color-contrast);
+}
 
 p {
         font-family: "Helvetica Now Display", sans-serif;
@@ -144,6 +151,11 @@ p {
         color: var(--color-contrast);
 }
 
+body {
+        color: var(--color-contrast);
+        background-color: var(--color-bg);
+        margin: 0;
+}
 .p-small {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -152,12 +164,14 @@ p {
         margin: 0;
         color: var(--color-contrast);
 }
-
-.icon {
-        display: inline-block;
+.p-large {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body-large);
+        margin: 0;
         color: var(--color-contrast);
 }
-
 .link {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -168,6 +182,10 @@ p {
         margin: 0;
         padding: 0;
         cursor: pointer;
+}
+.icon {
+        display: inline-block;
+        color: var(--color-contrast);
 }
 
 /* Grid styles */
