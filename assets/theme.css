@@ -181,4 +181,6 @@ p {
 /* Card random hover styles */
 .rand-hover:hover {
   background: var(--hover-bg, var(--color-bg-hover));
+  border-radius: 999px;
+  border: 1px solid transparent;
 }
