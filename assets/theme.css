@@ -60,8 +60,8 @@
         --space-xs: 5px;
         --space-sm: 15px;
         --space-md: 30px;
-        --space-lg: 40px;
-        --space-xl: 60px;
+        --space-lg: 35px;
+        --space-xl: 55px;
         --space-xxl: 100px;
 
         --space-page-margin: 60px;
@@ -170,10 +170,15 @@ p {
         cursor: pointer;
 }
 
-/* Grid Styles */
+/* Grid styles */
 .container {
         display: grid;
         grid-template-columns: repeat(16, 1fr);
         gap: var(--space-gutter);
         padding: 0 var(--space-page-margin);
+}
+
+/* Card random hover styles */
+.rand-hover:hover {
+  background: var(--hover-bg, var(--color-bg-hover));
 }

@@ -1,0 +1,73 @@
+<style>
+.article-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-neutral-0);
+    border: 1px solid var(--color-bg);
+    cursor: pointer;
+}
+.article-card:hover{
+    border-radius: 999px;
+
+}
+
+</style>
+
+{% for block in section.blocks %}
+
+<a  href="{{ block.settings.article-link }}" class="article-card rand-hover">
+    <h3 class="title">{{ block.settings.title }}</h3>
+    <p class="p-small description">{{ block.settings.description }}</p>
+</a>
+
+{% endfor %}
+
+
+
+
+{% schema %}
+{
+  "name": "Article Card Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "article-card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sample Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+        },
+        {
+          "type": "url",
+          "id": "article-link",
+          "label": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 
