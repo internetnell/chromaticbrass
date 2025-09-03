@@ -1,6 +1,6 @@
 :root {
         /* Font sizes */
-        --font-size-h1: 134px;
+        --font-size-h1: 100px;
         --font-size-h2: 32px;
         --font-size-h3: 26px;
 
@@ -8,9 +8,13 @@
         --font-size-body: 14px;
         --font-size-body-small: 12px;
 
+        --font-size-label-large: 18px;
+        --font-size-label: 16px;
+        --font-size-label-small: 14px;
+
         /* Line heights */
-        --line-height-body: 1.2;
-        --line-height-title: 1.05;
+        --line-height-body: 1.4;
+        --line-height-title: 1.12;
 
         /* Letter spacing */
         --letter-spacing-tight: -0.025px;
@@ -62,7 +66,8 @@
 
 
         /* Space */
-        --space-xs: 5px;
+        --space-xxs: 5px;
+        --space-xs: 10px;
         --space-sm: 15px;
         --space-md: 30px;
         --space-lg: 35px;
@@ -85,6 +90,14 @@
                 /* Super Modern Browsers */
                 url('./helvetica-now-display-v1-latin-400.woff') format('woff'),
                 /* Modern Browsers */
+}
+
+@font-face {
+        font-display: swap;
+        font-family: 'Pragati';
+        font-style: normal;
+        font-weight: 400;
+        src: url('./pragati.woff2') format('woff2'),
 }
 
 @font-face {
@@ -120,11 +133,14 @@
 }
 
 /* Type Styles */
+/********* Headings *********/
 h1 {
         font-family: "CB Wider", sans-serif;
         font-weight: 700;
         margin: 0;
+        font-size: var(--font-size-h1);
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 
 h2 {
@@ -133,29 +149,37 @@ h2 {
         font-size: var(--font-size-h2);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
+
 h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
         font-size: var(--font-size-h3);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
+
 .h2 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
         font-size: var(--font-size-h2);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
+
 .h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
         font-size: var(--font-size-h3);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-title);
 }
 
+/********* Body *********/
 p {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -163,13 +187,26 @@ p {
         font-size: var(--font-size-body);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
+}
+
+.p {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
 
 body {
         color: var(--color-contrast);
         background-color: var(--color-bg);
         margin: 0;
+        line-height: var(--line-height-body);
 }
+
 .p-small {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -177,7 +214,9 @@ body {
         font-size: var(--font-size-body-small);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
+
 .p-large {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -185,7 +224,22 @@ body {
         font-size: var(--font-size-body-large);
         margin: 0;
         color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
+
+/********* Label *********/
+.label {
+        font-family: "Pragati", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-label);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-body);
+}
+
+/********* Links *********/
+
 .link {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -196,7 +250,9 @@ body {
         margin: 0;
         padding: 0;
         cursor: pointer;
+        line-height: var(--line-height-body);
 }
+
 .icon {
         display: inline-block;
         color: var(--color-contrast);
@@ -212,25 +268,13 @@ body {
 
 /* Card random hover styles */
 .rand-hover:hover {
-  background: var(--hover-bg, var(--color-bg-hover));
-  border-radius: 999px;
-  border: 1px solid transparent;
+        background: var(--hover-bg, var(--color-bg-hover));
+        border-radius: 999px;
+        border: 1px solid transparent;
 }
 
 /* Download Button */
 .download-button {
-<<<<<<< Updated upstream
-border: 1px solid var(--color-contrast);
-font-family: "Helvetica Now Display", sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: var(--font-size-body);
-margin: 0;
-color: var(--color-contrast);
-text-decoration: none;
-padding: 10px var(--space-sm);
-border-radius: var(--radius-lg);
-=======
         border: 1px solid var(--color-contrast);
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -243,54 +287,9 @@ border-radius: var(--radius-lg);
         border-radius: var(--radius-lg);
         /* !IMPORTANT: transparent border for layout consistency */
         border: 1px solid transparent !important;
-<<<<<<< Updated upstream
-}
-.download-button:hover {
-        color: var(--color-contrast) !important;
-}
-
-/* Button */
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  -webkit-appearance: none;
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  line-height: inherit;
-}
-
-button {
-        font-family: "Helvetica Now Display", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--font-size-body);
-        background-color: var(--color-contrast);
-        color: var(--color-bg);
-        margin: 0;
-        line-height: var(--line-height-body);
-        border: 1px solid transparent;
-        border-radius: var(--radius-lg);
-        padding: var(--space-xs) var(--space-sm);
-        cursor: pointer;
-        display: inline-block;
-}
-button:hover {
-        cursor: pointer;
-        color: var(--color-contrast);
-        backdrop-filter: blur(1px);
-}
-=======
-=======
 }
 
 .download-button:hover {
->>>>>>> Stashed changes
         color: var(--color-contrast) !important;
 }
 
@@ -358,9 +357,4 @@ textarea {
         line-height: var(--line-height-body);
         margin: var(--space-sm) 0 var(--space-xs) var(--space-sm);
 
-<<<<<<< Updated upstream
 }
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
