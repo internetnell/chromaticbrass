@@ -285,8 +285,6 @@ body {
         text-decoration: none;
         padding: 10px var(--space-sm);
         border-radius: var(--radius-lg);
-        /* !IMPORTANT: transparent border for layout consistency */
-        border: 1px solid transparent !important;
 }
 
 .download-button:hover {
@@ -340,14 +338,14 @@ input {
 }
 
 input:focus {
-        box-shadow: 0 0 30px var(--color-yellow-light);
-        outline: 1px solid var(--color-yellow-light);
-        outline-offset: 2px;
+        box-shadow: 0 0 30px var(--color-yellow);
+        outline: .5px solid var(--color-yellow);
+        outline-offset: .5px;
 }
 input:focus-visible {
-        box-shadow: 0 0 30px var(--color-yellow-light);
-        outline: 1px solid var(--color-yellow-light);
-        outline-offset: 2px;
+        box-shadow: 0 0 30px var(--color-yellow);
+        outline: .5px solid var(--color-yellow);
+        outline-offset: .5px;
 }
 
 textarea {
@@ -358,14 +356,14 @@ textarea {
         padding: var(--space-sm) var(--space-sm);
 }
 textarea:focus {
-        box-shadow: 0 0 30px var(--color-yellow-light);
-        outline: 1px solid var(--color-yellow-light);
-        outline-offset: 2px;
+        box-shadow: 0 0 30px var(--color-yellow);
+        outline: .5px solid var(--color-yellow);
+        outline-offset: .5px;
 }
 textarea:focus-visible {
-        box-shadow: 0 0 30px var(--color-yellow-light);
-        outline: 1px solid var(--color-yellow-light);
-        outline-offset: 2px;
+        box-shadow: 0 0 30px var(--color-yellow);
+        outline: 1px solid var(--color-yellow);
+        outline-offset: 1px;
 }
 
 .form-label {
