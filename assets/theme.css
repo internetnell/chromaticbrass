@@ -243,6 +243,7 @@ border-radius: var(--radius-lg);
         border-radius: var(--radius-lg);
         /* !IMPORTANT: transparent border for layout consistency */
         border: 1px solid transparent !important;
+<<<<<<< Updated upstream
 }
 .download-button:hover {
         color: var(--color-contrast) !important;
@@ -285,6 +286,11 @@ button:hover {
         backdrop-filter: blur(1px);
 }
 =======
+=======
+}
+
+.download-button:hover {
+>>>>>>> Stashed changes
         color: var(--color-contrast) !important;
 }
 
@@ -352,5 +358,9 @@ textarea {
         line-height: var(--line-height-body);
         margin: var(--space-sm) 0 var(--space-xs) var(--space-sm);
 
+<<<<<<< Updated upstream
+}
+>>>>>>> Stashed changes
+=======
 }
 >>>>>>> Stashed changes
