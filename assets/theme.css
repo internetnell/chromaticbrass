@@ -73,6 +73,8 @@
         --space-gutter: 16px;
 }
 
+
+
 /* Font Declarations */
 @font-face {
         font-display: swap;
@@ -217,6 +219,7 @@ body {
 
 /* Download Button */
 .download-button {
+<<<<<<< Updated upstream
 border: 1px solid var(--color-contrast);
 font-family: "Helvetica Now Display", sans-serif;
 font-weight: 400;
@@ -227,7 +230,92 @@ color: var(--color-contrast);
 text-decoration: none;
 padding: 10px var(--space-sm);
 border-radius: var(--radius-lg);
+=======
+        border: 1px solid var(--color-contrast);
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        margin: 0;
+        color: var(--color-contrast);
+        text-decoration: none;
+        padding: 10px var(--space-sm);
+        border-radius: var(--radius-lg);
+        /* !IMPORTANT: transparent border for layout consistency */
+        border: 1px solid transparent !important;
+>>>>>>> Stashed changes
 }
 .download-button:hover {
+<<<<<<< Updated upstream
   background: var(--color-neutral-0);
 }
+=======
+        color: var(--color-contrast) !important;
+}
+
+/* Button */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+button {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        background-color: var(--color-contrast);
+        color: var(--color-bg);
+        margin: 0;
+        line-height: var(--line-height-body);
+        border: 1px solid transparent;
+        border-radius: var(--radius-lg);
+        padding: var(--space-xs) var(--space-sm);
+        cursor: pointer;
+        display: inline-block;
+}
+button:hover {
+        cursor: pointer;
+        color: var(--color-contrast);
+        backdrop-filter: blur(1px);
+}
+
+/* Forms */
+input {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-neutral-0);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-neutral-0);
+        width: 100%;
+}
+
+textarea {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-neutral-0);
+        border-radius: 25px;
+        border: 1px solid var(--color-neutral-0);
+        width: 100%;
+        padding: var(--space-sm) var(--space-sm);
+}
+
+.form-label {
+        font-family: "Pragati", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-label);
+        color: var(--color-neutral-50);
+        line-height: var(--line-height-body);
+        margin: var(--space-sm) 0 var(--space-xs) var(--space-sm);
+
+}
+>>>>>>> Stashed changes

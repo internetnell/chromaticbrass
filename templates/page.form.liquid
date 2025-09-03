@@ -1,0 +1,81 @@
+<style>
+  .form-wrapper {
+    grid-column: 1 / span 16;
+  }
+
+  h2 {
+    grid-column: 1 / span 16;
+    grid-row: 1;
+    margin: var(--space-xxl) 0 var(--space-lg);
+  }
+
+  .form-wrapper {
+    grid-column: 1 / span 8;
+  }
+
+  form {
+    grid-column: 1 / span 8;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 500px;
+  }
+</style>
+
+<section class="form-wrapper container">
+  <h2>Book a workshop</h2>
+
+  <form action="mailto:info@chromaticbrass.org" method="POST" enctype="text/plain">
+    <div>
+      <label
+        class="form-label"
+        for="name"
+        >Full name</label
+      >
+      <input
+        class="p"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Full name"
+        required
+      >
+    </div>
+
+    <div>
+      <label
+        class="form-label"
+        for="email"
+        >Email</label
+      >
+      <input
+        class="p"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="email@example.com"
+        required
+      >
+    </div>
+    <div>
+      <label
+        class="form-label"
+        for="request"
+        >Request information</label
+      >
+      <textarea
+        class="p"
+        id="request"
+        name="request"
+        rows="5"
+        placeholder="Tell us more about how you'd like to work together"
+        required
+      >
+    </textarea>
+    </div>
+
+    <div>
+    <button class="rand-hover" type="submit">Submit</button>
+    </div>
+  </form>
+</section>
