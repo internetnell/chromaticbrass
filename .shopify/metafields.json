@@ -7,7 +7,18 @@
   "location": [],
   "market": [],
   "order": [],
-  "page": [],
+  "page": [
+    {
+      "key": "page_description",
+      "namespace": "custom",
+      "name": "page-description",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "product": [],
   "variant": [],
   "shop": []
