@@ -102,6 +102,64 @@
       },
       "content-card": {
         "type": "content-card",
+        "blocks": {
+          "card_8yTn9H": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_JxkHKR": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_qPKpRN": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_FtF4NX": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_ReyAyR": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_r9P9xM": {
+            "type": "card",
+            "settings": {
+              "title": "Sample Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "card_8yTn9H",
+          "card_JxkHKR",
+          "card_qPKpRN",
+          "card_FtF4NX",
+          "card_ReyAyR",
+          "card_r9P9xM"
+        ],
         "settings": {}
       },
       "footer": {
