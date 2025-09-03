@@ -28,10 +28,75 @@
               "location": "San Francisco",
               "event-link": ""
             }
+          },
+          "event_PJyWee": {
+            "type": "event",
+            "settings": {
+              "title": "Sample Event",
+              "description": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment.",
+              "day": "Friday",
+              "date": "Feb 17",
+              "time": "1:00 PM EST",
+              "location": "San Francisco",
+              "event-link": ""
+            }
+          },
+          "event_rWepep": {
+            "type": "event",
+            "settings": {
+              "title": "Sample Event",
+              "description": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment.",
+              "day": "Friday",
+              "date": "Feb 17",
+              "time": "1:00 PM EST",
+              "location": "San Francisco",
+              "event-link": ""
+            }
+          },
+          "event_3DQW3L": {
+            "type": "event",
+            "settings": {
+              "title": "Sample Event",
+              "description": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment.",
+              "day": "Friday",
+              "date": "Feb 17",
+              "time": "1:00 PM EST",
+              "location": "San Francisco",
+              "event-link": ""
+            }
+          },
+          "event_HfDBp6": {
+            "type": "event",
+            "settings": {
+              "title": "Sample Event",
+              "description": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment.",
+              "day": "Friday",
+              "date": "Feb 17",
+              "time": "1:00 PM EST",
+              "location": "San Francisco",
+              "event-link": ""
+            }
+          },
+          "event_E4YMnq": {
+            "type": "event",
+            "settings": {
+              "title": "Sample Event",
+              "description": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment.",
+              "day": "Friday",
+              "date": "Feb 17",
+              "time": "1:00 PM EST",
+              "location": "San Francisco",
+              "event-link": ""
+            }
           }
         },
         "block_order": [
-          "event_cGpQi4"
+          "event_cGpQi4",
+          "event_PJyWee",
+          "event_rWepep",
+          "event_3DQW3L",
+          "event_HfDBp6",
+          "event_E4YMnq"
         ],
         "settings": {}
       },
