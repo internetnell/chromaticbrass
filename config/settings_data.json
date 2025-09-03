@@ -169,7 +169,7 @@
       "page-title": {
         "type": "page-title",
         "settings": {
-          "title": "Press",
+          "title": "Events",
           "show_subtitle": false,
           "subtitle": "A page description"
         }
