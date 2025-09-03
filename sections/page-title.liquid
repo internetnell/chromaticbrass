@@ -1,0 +1,51 @@
+<style>
+  .page-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxl);
+    margin: 0 var(--space-page-margin);
+  }
+  .page-subtitle {
+    width: 75%;
+    max-width: 900px;
+  }
+</style>
+
+<div class="page-title-section">
+  <h1 class="page-title">{{ section.settings.title }}</h1>
+
+  {% if section.settings.show_subtitle and section.settings.subtitle != blank %}
+    <h2 class="page-subtitle">{{ section.settings.subtitle }}</h2>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Page Title",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Page Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subtitle",
+      "label": "Show subtitle",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "A page description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Title"
+    }
+  ]
+}
+{% endschema %}
