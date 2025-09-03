@@ -298,15 +298,15 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  -webkit-appearance: none;
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  line-height: inherit;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 0;
+        background: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        line-height: inherit;
 }
 
 button {
@@ -324,6 +324,7 @@ button {
         cursor: pointer;
         display: inline-block;
 }
+
 button:hover {
         cursor: pointer;
         color: var(--color-contrast);
@@ -336,7 +337,17 @@ input {
         background: var(--color-neutral-0);
         border-radius: var(--radius-lg);
         border: 1px solid var(--color-neutral-0);
-        width: 100%;
+}
+
+input:focus {
+        box-shadow: 0 0 30px var(--color-yellow-light);
+        outline: 1px solid var(--color-yellow-light);
+        outline-offset: 2px;
+}
+input:focus-visible {
+        box-shadow: 0 0 30px var(--color-yellow-light);
+        outline: 1px solid var(--color-yellow-light);
+        outline-offset: 2px;
 }
 
 textarea {
@@ -344,8 +355,17 @@ textarea {
         background: var(--color-neutral-0);
         border-radius: 25px;
         border: 1px solid var(--color-neutral-0);
-        width: 100%;
         padding: var(--space-sm) var(--space-sm);
+}
+textarea:focus {
+        box-shadow: 0 0 30px var(--color-yellow-light);
+        outline: 1px solid var(--color-yellow-light);
+        outline-offset: 2px;
+}
+textarea:focus-visible {
+        box-shadow: 0 0 30px var(--color-yellow-light);
+        outline: 1px solid var(--color-yellow-light);
+        outline-offset: 2px;
 }
 
 .form-label {
@@ -357,4 +377,9 @@ textarea {
         line-height: var(--line-height-body);
         margin: var(--space-sm) 0 var(--space-xs) var(--space-sm);
 
+}
+
+.form-group {
+        display: flex;
+        flex-direction: column;
 }

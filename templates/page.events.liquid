@@ -1,7 +1,53 @@
 <style>
-
+  #shopify-section-event-card {
+    display: contents;
+  }
+  .events-wrapper {
+    margin: 0 var(--space-page-margin);
+}
+  .events-list {
+    grid-column: 1 / span 16;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+  }
+  .event-controls {
+    display: grid;
+  }
+  .search {
+    width: 100%;
+    grid-column: 1 / span 4;
+}
+  .select {
+    grid-column: 13 / span 4;
+}
 </style>
 
 {% section 'page-title' %}
 
-{% section 'event-card' %}
+    <div class="event-controls container">
+
+        <input 
+        type="text"
+        placeholder="Search"
+        aria-label="Search events"
+        class="search"
+        >
+
+        <input 
+        type="text"
+        placeholder="Select"
+        aria-label="Select"
+        class="select"
+        >
+
+    </div>
+
+<section class="events-wrapper">
+
+  <div class="events-list">
+    {% section 'event-card' %}
+  </div>
+
+</section>
+
