@@ -1,0 +1,149 @@
+<style>
+  .wwd-card {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-neutral-0);
+    cursor: pointer;
+  }
+
+  .what-we-do-wrapper img {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+  }
+
+</style>
+
+<section class="what-we-do-wrapper container">
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-1'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-1'] }}</p>
+  </div>
+
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-2'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-2'] }}</p>
+  </div>
+
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-3'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-3'] }}</p>
+  </div>
+
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-4'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-4'] }}</p>
+  </div>
+
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-5'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-5'] }}</p>
+  </div>
+
+  <div class="wwd-card">
+    <h3 class="title">{{ section.settings['title-6'] }}</h3>
+    <p class="p-small description">{{ section.settings['description-6'] }}</p>
+  </div>
+
+  <img
+    class="img-col-2"
+    src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/wwd-img.png?v=1756932122"
+    alt="Alt text //REPLACE//"
+    width="auto"
+    height="auto"
+  >
+
+    <a href="#" class="wwd-link-card">Contact us</a>
+
+</section>
+
+{% schema %}
+{
+  "name": "What We Do Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title-1",
+      "label": "Title 1",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-1",
+      "label": "Description 1",
+      "default": "Brief description of this card."
+    },
+    {
+      "type": "text",
+      "id": "title-2",
+      "label": "Title 2",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-2",
+      "label": "Description 2",
+      "default": "Brief description of this card."
+    },
+    {
+      "type": "text",
+      "id": "title-3",
+      "label": "Title 3",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-3",
+      "label": "Description 3",
+      "default": "Brief description of this card."
+    },
+    {
+      "type": "text",
+      "id": "title-4",
+      "label": "Title 4",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-4",
+      "label": "Description 4",
+      "default": "Brief description of this card."
+    },
+    {
+      "type": "text",
+      "id": "title-5",
+      "label": "Title 5",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-5",
+      "label": "Description 5",
+      "default": "Brief description of this card."
+    },
+    {
+      "type": "text",
+      "id": "title-6",
+      "label": "Title 6",
+      "default": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description-6",
+      "label": "Description 6",
+      "default": "Brief description of this card."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

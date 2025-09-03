@@ -1,0 +1,245 @@
+{% comment %}
+  Section: Testimonials with Controls + Progress
+  File: sections/testimonials.liquid
+{% endcomment %}
+
+<section id="testimonial-{{ section.id }}" class="testimonial-section">
+  <div class="testimonial-topbar">
+    <button class="nav-btn prev" aria-label="Previous testimonial" type="button">
+      <!-- left arrow -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div
+      class="progress"
+      role="progressbar"
+      aria-label="Slide timer"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+    >
+      <span class="progress__bar"></span>
+    </div>
+
+    <button class="nav-btn next" aria-label="Next testimonial" type="button">
+      <!-- right arrow -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    class="slides"
+    data-current="0"
+    data-autoplay="{{ section.settings.enable_autoplay | json }}"
+    data-interval="{{ section.settings.autoplay_seconds | times: 1000 }}"
+    data-pause-hover="{{ section.settings.pause_on_hover | json }}"
+    data-loop="{{ section.settings.loop | json }}"
+  >
+    {% for block in section.blocks %}
+      <figure class="slide{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.settings.content != blank %}
+          <blockquote class="slide__quote">
+            {{ block.settings.content | escape }}
+          </blockquote>
+        {% endif %}
+        {% if block.settings.author != blank %}
+          <figcaption class="slide__author">
+            {{ block.settings.author | escape }}
+          </figcaption>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+
+  <style>
+    #testimonial-{{ section.id }} {
+      --progress-height: 3px;
+      --gap: 12px;
+      --arrow-size: 44px;
+    }
+
+    #testimonial-{{ section.id }} .testimonial-topbar{
+      display:flex; align-items:center; gap: var(--gap);
+      border-bottom: 1px solid currentColor; padding-bottom: 8px; margin-bottom: 16px;
+    }
+
+    #testimonial-{{ section.id }} .nav-btn{
+      width: var(--arrow-size); height: var(--arrow-size);
+      display:grid; place-items:center;
+      border: 1px solid currentColor; border-radius: 999px; background: transparent;
+      cursor: pointer;
+    }
+    #testimonial-{{ section.id }} .nav-btn:focus-visible{ outline: 2px solid currentColor; outline-offset: 2px; }
+
+    #testimonial-{{ section.id }} .progress{
+      position: relative; flex: 1 1 auto; height: var(--progress-height);
+      background: var(--color-neutral-40); overflow: hidden;
+    }
+    #testimonial-{{ section.id }} .progress__bar{
+      position:absolute; left:0; top:0; bottom:0; width:0%;
+      background: currentColor; transform-origin: left center;
+      transition: width linear;
+    }
+
+    #testimonial-{{ section.id }} .slides{ position:relative; }
+    #testimonial-{{ section.id }} .slide{ display:none; }
+    #testimonial-{{ section.id }} .slide.is-active{ display:block; }
+
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById('testimonial-{{ section.id }}');
+      if (!root) return;
+
+      const slidesWrap = root.querySelector('.slides');
+      const slides = Array.from(root.querySelectorAll('.slide'));
+      const prevBtn = root.querySelector('.nav-btn.prev');
+      const nextBtn = root.querySelector('.nav-btn.next');
+      const bar = root.querySelector('.progress__bar');
+
+      if (!slides.length) return;
+
+      let current = 0;
+      let timer = null;
+      const autoplay = slidesWrap.dataset.autoplay === 'true';
+      const interval = parseInt(slidesWrap.dataset.interval || '5000', 10);
+      const pauseOnHover = slidesWrap.dataset.pauseHover === 'true';
+      const loop = slidesWrap.dataset.loop === 'true';
+
+      function show(i) {
+        slides[current].classList.remove('is-active');
+        current = i;
+        slides[current].classList.add('is-active');
+        slidesWrap.dataset.current = String(current);
+        resetProgress();
+        startTimer();
+      }
+
+      function next() {
+        const nextIndex = current + 1 < slides.length ? current + 1 : loop ? 0 : current;
+        if (nextIndex !== current) show(nextIndex);
+        else resetProgress(); // if at end and not looping, just reset progress
+      }
+      function prev() {
+        const prevIndex = current - 1 >= 0 ? current - 1 : loop ? slides.length - 1 : current;
+        if (prevIndex !== current) show(prevIndex);
+        else resetProgress();
+      }
+
+      function resetProgress() {
+        bar.style.transitionDuration = '0ms';
+        bar.style.width = '0%';
+        // force reflow so transition restarts
+        void bar.offsetWidth;
+        bar.style.transitionDuration = interval + 'ms';
+        bar.style.width = autoplay ? '100%' : '0%';
+        root.querySelector('.progress').setAttribute('aria-valuenow', autoplay ? '0' : '0');
+      }
+
+      function startTimer() {
+        stopTimer();
+        if (!autoplay) return;
+        timer = setTimeout(next, interval);
+      }
+      function stopTimer() {
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      // Controls
+      prevBtn.addEventListener('click', () => {
+        stopTimer();
+        prev();
+      });
+      nextBtn.addEventListener('click', () => {
+        stopTimer();
+        next();
+      });
+
+      if (pauseOnHover) {
+        root.addEventListener('mouseenter', stopTimer);
+        root.addEventListener('mouseleave', startTimer);
+      }
+
+      // Kickoff
+      resetProgress();
+      startTimer();
+
+      // Re-run if the editor re-renders the section
+      document.addEventListener('shopify:section:unload', (e) => {
+        if (e.detail.sectionId === '{{ section.id }}') stopTimer();
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials (Carousel)",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "default": true,
+      "label": "Auto-advance slides"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "unit": "s",
+      "default": 6,
+      "label": "Seconds per slide"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "default": true,
+      "label": "Pause on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "default": true,
+      "label": "Loop slides"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Testimonial text",
+          "default": "“It’s rare for there to be such camaraderie… Good things are ahead for sure with this group.”"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Name, Organization"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials (Carousel)",
+      "category": "Text",
+      "blocks": [{ "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" }]
+    }
+  ]
+}
+{% endschema %}

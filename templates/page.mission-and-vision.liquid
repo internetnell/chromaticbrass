@@ -1,7 +1,75 @@
+<style>
+  /* ---------------- IMG ROW ----------------*/
+  .image-row-1 {
+    margin-top: var(--space-xl);
+  }
 
+  .img-col-2 {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+  }
+  .img-col-4 {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+  }
+</style>
 
 <main>
+  {% section 'page-title' %}
 
-    {% section 'page-title' %}
+  <section class="image-row-1 container">
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-1.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
 
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-2.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-4"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-3.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-4.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-2"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-5.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
+
+    <img
+      class="img-col-4"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/mv-6.png?v=1756930163"
+      alt="Alt text //REPLACE//"
+      width="auto"
+      height="auto"
+    >
+  </section>
+
+  {% section 'what-we-do-cards' %}
+
+    {% section 'testimonial' %}
 </main>

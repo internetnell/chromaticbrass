@@ -75,7 +75,7 @@
         --space-xxl: 100px;
 
         --space-page-margin: 60px;
-        --space-gutter: 16px;
+        --space-gutter: 1px;
 }
 
 
@@ -342,6 +342,7 @@ input:focus {
         outline: .5px solid var(--color-yellow);
         outline-offset: .5px;
 }
+
 input:focus-visible {
         box-shadow: 0 0 30px var(--color-yellow);
         outline: .5px solid var(--color-yellow);
@@ -355,11 +356,13 @@ textarea {
         border: 1px solid var(--color-neutral-0);
         padding: var(--space-sm) var(--space-sm);
 }
+
 textarea:focus {
         box-shadow: 0 0 30px var(--color-yellow);
         outline: .5px solid var(--color-yellow);
         outline-offset: .5px;
 }
+
 textarea:focus-visible {
         box-shadow: 0 0 30px var(--color-yellow);
         outline: 1px solid var(--color-yellow);
@@ -380,4 +383,23 @@ textarea:focus-visible {
 .form-group {
         display: flex;
         flex-direction: column;
+}
+
+/* Testimonials */
+blockquote {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h2);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-title);
+}
+figcaption {
+        font-family: "Pragati", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-label-large);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-body);
 }
