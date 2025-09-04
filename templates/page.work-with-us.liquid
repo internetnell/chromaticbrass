@@ -1,13 +1,77 @@
 <style>
+  .work-with-us-card-list {
+    margin: 0 var(--space-page-margin);
+  }
 
-
-
+/* Image and Testimonial Section */
+.img-testimonial-group {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+.img-group {
+    grid-column: span 6;
+    display: grid;
+    gap: var(--space-gutter);
+    grid-template-columns: repeat(6, 1fr);
+}
+.img-col-2 {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+}
+.img-col-3 {
+    grid-column: span 3;
+    width: 100%;
+    height: auto;
+}
+.img-col-4 {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+}
+.testimonials {
+    grid-column: 8 / span 9;
+}
 </style>
-
 
 <main>
   {% section 'page-title' %}
-
   {% section 'work-with-us-card' %}
 
+  <section class="img-testimonial-group container">
+    <div class="img-group">
+      <img
+        class="img-col-2"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-3.png?v=1757005261"
+        alt="//Replace Me"
+        width="auto"
+        height="auto"
+      >
+      <img
+        class="img-col-4"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-4.png?v=1757005261"
+        alt="//Replace Me"
+        width="auto"
+        height="auto"
+      >
+      <img
+        class="img-col-3"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-3.png?v=1757005261"
+        alt="//Replace Me"
+        width="auto"
+        height="auto"
+      >    
+      <img
+        class="img-col-3"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-4.png?v=1757005260"
+        alt="//Replace Me"
+        width="auto"
+        height="auto"
+      >      
+    </div>
+
+    <div class="testimonials">
+        Testimonials
+    </div>
+  </section>
 </main>
