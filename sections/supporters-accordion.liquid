@@ -1,0 +1,151 @@
+<style>
+    .supporters-section {
+margin: var(--space-xxl) 0;
+    }
+  .supporters-section h2 {
+    grid-column: 1 / span 7;
+  }
+  .accordion {
+    grid-column: 9 / span 8;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .accordion li {
+    border-top: 1px solid var(--color-contrast);
+    padding: var(--space-sm) 0;
+  }
+  .accordion li:last-child {
+    border-bottom: 1px solid var(--color-contrast);
+  }
+  .accordion li label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .accordion li label svg {
+    fill: var(--color-contrast);
+    width: 20px;
+    height: 20px;
+  }
+  input[type='radio'] {
+    display: none;
+  }
+  .accordion .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+  }
+  .accordion input[type='radio']:checked + label + .content {
+    max-height: 600px; 
+    margin-top: var(--space-sm);
+  }
+</style>
+
+<section class="supporters-section container">
+  <h2 class="h2">{{ section.settings.title }}</h2>
+
+  <ul class="accordion">
+    <li>
+      <input
+        type="radio"
+        name="accordion"
+        id="first"
+      >
+      <label class="accordion-label h4" for="first">
+        {{ section.settings['accordion-1-title'] }}
+        {% render 'icon-plus' %}
+      </label>
+
+      <div class="content">
+        <p>{{ section.settings['accordion-1-content'] | newline_to_br }}</p>
+      </div>
+    </li>
+
+    <li>
+      <input
+        type="radio"
+        name="accordion"
+        id="second"
+      >
+      <label class="accordion-label h4" for="second">
+        {{ section.settings['accordion-2-title'] }}
+        {% render 'icon-plus' %}
+      </label>
+
+      <div class="content">
+        <p>{{ section.settings['accordion-2-content'] | newline_to_br }}</p>
+      </div>
+    </li>
+
+    <li>
+      <input
+        type="radio"
+        name="accordion"
+        id="third"
+      >
+      <label class="accordion-label h4" for="third">
+        {{ section.settings['accordion-3-title'] }}
+        {% render 'icon-plus' %}
+      </label>
+
+      <div class="content">
+        <p>{{ section.settings['accordion-3-content'] | newline_to_br }}</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Supporters",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Thank you to our supporters"
+    },
+    /* Row 1 */
+    {
+      "type": "text",
+      "id": "accordion-1-title",
+      "label": "1. Subtitle",
+      "default": "Donors"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion-1-content",
+      "label": "1. Content",
+      "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
+    },
+    /* Row 2 */
+    {
+      "type": "text",
+      "id": "accordion-2-title",
+      "label": "2. Subtitle",
+      "default": "Collaborators"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion-2-content",
+      "label": "2. Content",
+      "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
+    },
+    /* Row 3 */
+    {
+      "type": "text",
+      "id": "accordion-3-title",
+      "label": "3. Subtitle",
+      "default": "Sponsors & Affiliates"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion-3-content",
+      "label": "3. Content",
+      "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
+    }
+  ]
+}
+{% endschema %}
