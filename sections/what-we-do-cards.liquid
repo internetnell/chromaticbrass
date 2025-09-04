@@ -16,37 +16,53 @@
     width: 100%;
     height: auto;
   }
+  .wwd-link-card {
+    text-decoration: none;
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    gap: var(--space-md);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-round);
+    background-color: var(--color-orange-light);
+    }
+  .wwd-link-card svg {
+    fill: var(--color-contrast);
+  }
 
 </style>
 
 <section class="what-we-do-wrapper container">
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-1'] }}</h3>
+    <h4 class="title">{{ section.settings['title-1'] }}</h4>
     <p class="p-small description">{{ section.settings['description-1'] }}</p>
   </div>
 
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-2'] }}</h3>
+    <h4 class="title">{{ section.settings['title-2'] }}</h4>
     <p class="p-small description">{{ section.settings['description-2'] }}</p>
   </div>
 
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-3'] }}</h3>
+    <h4 class="title">{{ section.settings['title-3'] }}</h4>
     <p class="p-small description">{{ section.settings['description-3'] }}</p>
   </div>
 
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-4'] }}</h3>
+    <h4 class="title">{{ section.settings['title-4'] }}</h4>
     <p class="p-small description">{{ section.settings['description-4'] }}</p>
   </div>
 
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-5'] }}</h3>
+    <h4 class="title">{{ section.settings['title-5'] }}</h4>
     <p class="p-small description">{{ section.settings['description-5'] }}</p>
   </div>
 
   <div class="wwd-card">
-    <h3 class="title">{{ section.settings['title-6'] }}</h3>
+    <h4 class="title">{{ section.settings['title-6'] }}</h4>
     <p class="p-small description">{{ section.settings['description-6'] }}</p>
   </div>
 
@@ -58,7 +74,10 @@
     height="auto"
   >
 
-    <a href="#" class="wwd-link-card">Contact us</a>
+    <a href="#" class="wwd-link-card rand-hover">
+      {% render 'icon-up-right' %} 
+      <h4>Contact us</h4>
+    </a>
 
 </section>
 
@@ -70,73 +89,73 @@
       "type": "text",
       "id": "title-1",
       "label": "Title 1",
-      "default": "Title"
+      "default": "Expand outreach & recruitment"
     },
     {
       "type": "textarea",
       "id": "description-1",
       "label": "Description 1",
-      "default": "Brief description of this card."
+      "default": "We actively seek out and recruit talented racially and ethnically underrepresented women and gender non-conforming people in the brass world. We partner with schools, universities, and community organizations to identify and nurture young talent."
     },
     {
       "type": "text",
       "id": "title-2",
       "label": "Title 2",
-      "default": "Title"
+      "default": "Host celebratory events"
     },
     {
       "type": "textarea",
       "id": "description-2",
       "label": "Description 2",
-      "default": "Brief description of this card."
+      "default": "The Chromatic Brass Collective works to organize concerts, recitals, and festivals that highlight the achievements of underrepresented musicians."
     },
     {
       "type": "text",
       "id": "title-3",
       "label": "Title 3",
-      "default": "Title"
+      "default": "Provide performance opportunities"
     },
     {
       "type": "textarea",
       "id": "description-3",
       "label": "Description 3",
-      "default": "Brief description of this card."
+      "default": "We create platforms for underrepresented musicians to perform, both virtually and in-person. Using our networks, we collaborate with other music organizations to secure performance slots for CBC members."
     },
     {
       "type": "text",
       "id": "title-4",
       "label": "Title 4",
-      "default": "Title"
+      "default": "Develop mentorship programs & educational initiatives"
     },
     {
       "type": "textarea",
       "id": "description-4",
       "label": "Description 4",
-      "default": "Brief description of this card."
+      "default": "We connect experienced musicians with emerging talent by offering workshops, masterclasses, and one-on-one coaching sessions to support skill development and career growth."
     },
     {
       "type": "text",
       "id": "title-5",
       "label": "Title 5",
-      "default": "Title"
+      "default": "Commission & promote new works"
     },
     {
       "type": "textarea",
       "id": "description-5",
       "label": "Description 5",
-      "default": "Brief description of this card."
+      "default": "We commission new compositions from underrepresented composers to expand the brass repertoire. We promote these new works through performances, recordings, and publications."
     },
     {
       "type": "text",
       "id": "title-6",
       "label": "Title 6",
-      "default": "Title"
+      "default": "Advocacy & awareness"
     },
     {
       "type": "textarea",
       "id": "description-6",
       "label": "Description 6",
-      "default": "Brief description of this card."
+      "default": "Advocate for greater representation and inclusivity in the music industry. We partner with other organizations to raise awareness about the challenges faced by underrepresented musicians and work towards systemic change."
     }
   ],
   "presets": [
