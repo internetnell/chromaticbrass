@@ -1,0 +1,190 @@
+<style>
+  .arrows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 8px;
+  }
+
+  #testimonial {
+    color: var(--Neutral-contrast, #000);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Helvetica Now Display";
+    font-size: var(--size-h2, 40px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.2px;
+    padding: 26px 0;
+  }
+
+  #author {
+    color: var(--Neutral-contrast, #000);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Pragati";
+    font-size: var(--size-label-large, 18px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+
+  #loadingBar {
+    outline: 2px solid black;
+    width: 100%;
+    transition: width 0.1s;
+  }
+</style>
+
+<script>
+    // Running JS once the entire file + stylesheets have loaded
+    window.onload = (e) => {
+        // Declaring state variables
+        let index = 0;
+        let progress = 0;
+        let max = 6000;
+        let interval = 10;
+        let paused = false;
+        let quotes = [];
+  
+        // Grabbing references to all the elements we want to access
+        const carousel = document.getElementById("carousel");
+        const leftArrow = document.getElementById("left-arrow");
+        const rightArrow = document.getElementById("right-arrow");
+        const loadingBar = document.getElementById("loadingBar");
+        const testimonial = document.getElementById("testimonial");
+        const author = document.getElementById("author");
+        const data = document.getElementById("data");
+  
+        // Storing hidden testimonial data in an array for us to work with
+        Array.from(data.children).forEach(element => {
+            quotes.push({
+                testimonial: element.getAttribute("data-testimonial"),
+                author: element.getAttribute("data-author"),
+            });
+        });
+
+        // Declaring functions and setting up event listeners
+        const updateTestimonialText = () => {
+            testimonial.innerText = `"${quotes[index].testimonial}"`;
+            author.innerText = quotes[index].author;
+        }
+        carousel.onmouseover = () => {
+            paused = true;
+            progress = 0;
+            loadingBar.style.width = "100%";
+        };
+        carousel.onmouseleave = () => {
+            paused = false;
+        };
+        const displayNextQuote = () => {
+            progress = 0;
+            index = (index + 1) % quotes.length;
+            updateTestimonialText();
+        };
+        const displayPrevQuote = () => {
+            progress = 0;
+            index = (index - 1);
+            if (index < 0) {
+                index = quotes.length - 1;
+            }
+            updateTestimonialText();
+        }
+        leftArrow.onclick = displayPrevQuote;
+        rightArrow.onclick = displayNextQuote;
+
+        // Setting the intial testimonial text and zeroing loading bar
+        updateTestimonialText();
+        loadingBar.style.width = "0%";
+  
+        // Loading bar loop that runs every {interval} milliseconds
+        setInterval(() => {
+            if (paused) {
+                return;
+            }
+            progress = (interval + progress);
+            if (progress > max) {
+                displayNextQuote();
+            }
+            loadingBar.style.width = `${(progress / max) * 100}%`;
+        }, interval);
+    }
+</script>
+<div id="carousel">
+  <div class="arrows">
+    <div id="left-arrow">
+      <svg
+        width="23"
+        height="24"
+        viewBox="0 0 23 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g style="mix-blend-mode:difference">
+          <path
+            d="M22.0986 11.9609L2.00049 11.9609"
+            stroke="black"
+            stroke-width="2" />
+          <path
+            d="M11.7255 1.35547L2.00055 11.9621L11.7255 22.5687"
+            stroke="black"
+            stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+    <div id="right-arrow">
+      <svg
+        width="23"
+        height="24"
+        viewBox="0 0 23 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g style="mix-blend-mode:difference">
+          <path
+            d="M0.828369 11.9648L20.9265 11.9648"
+            stroke="black"
+            stroke-width="2" />
+          <path
+            d="M11.2021 1.35547L20.9271 11.9621L11.2021 22.5687"
+            stroke="black"
+            stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div id="loadingBar"></div>
+  <blockquote>
+    <div id="testimonial"></div>
+  </blockquote>
+  <div id="author"></div>
+  {% comment %} Storing testimonial data in a hidden div to be accessed by JS {% endcomment %}
+  <div style="display: none;" id="data">
+    {% for block in section.blocks %}
+      <div data-testimonial="{{block.settings.testimonial}}" data-author="{{block.settings.author}}"></div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "testimony-carousel",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "testimonial",
+            "label": "Testimonial"
+          }, {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
