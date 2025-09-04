@@ -6,7 +6,7 @@
     padding-bottom: 8px;
   }
 
-  #testimonial {
+  #testimonial-{{ section.id }} {
     color: var(--Neutral-contrast, #000);
     leading-trim: both;
     text-edge: cap;
@@ -19,7 +19,7 @@
     padding: 26px 0;
   }
 
-  #author {
+  #author-{{ section.id }} {
     color: var(--Neutral-contrast, #000);
     leading-trim: both;
     text-edge: cap;
@@ -30,7 +30,7 @@
     line-height: 100%;
   }
 
-  #loadingBar {
+  #loadingBar-{{ section.id }} {
     outline: 2px solid black;
     width: 100%;
     transition: width 0.1s;
@@ -49,13 +49,13 @@
         let quotes = [];
   
         // Grabbing references to all the elements we want to access
-        const carousel = document.getElementById("carousel");
-        const leftArrow = document.getElementById("left-arrow");
-        const rightArrow = document.getElementById("right-arrow");
-        const loadingBar = document.getElementById("loadingBar");
-        const testimonial = document.getElementById("testimonial");
-        const author = document.getElementById("author");
-        const data = document.getElementById("data");
+        const carousel = document.getElementById("carousel-{{ section.id }}");
+        const leftArrow = document.getElementById("left-arrow-{{ section.id }}");
+        const rightArrow = document.getElementById("right-arrow-{{ section.id }}");
+        const loadingBar = document.getElementById("loadingBar-{{ section.id }}");
+        const testimonial = document.getElementById("testimonial-{{ section.id }}");
+        const author = document.getElementById("author-{{ section.id }}");
+        const data = document.getElementById("data-{{ section.id }}");
   
         // Storing hidden testimonial data in an array for us to work with
         Array.from(data.children).forEach(element => {
@@ -64,7 +64,7 @@
                 author: element.getAttribute("data-author"),
             });
         });
-
+  
         // Declaring functions and setting up event listeners
         const updateTestimonialText = () => {
             testimonial.innerText = `"${quotes[index].testimonial}"`;
@@ -93,7 +93,7 @@
         }
         leftArrow.onclick = displayPrevQuote;
         rightArrow.onclick = displayNextQuote;
-
+  
         // Setting the intial testimonial text and zeroing loading bar
         updateTestimonialText();
         loadingBar.style.width = "0%";
@@ -111,9 +111,9 @@
         }, interval);
     }
 </script>
-<div id="carousel">
+<div id="carousel-{{ section.id }}">
   <div class="arrows">
-    <div id="left-arrow">
+    <div id="left-arrow-{{ section.id }}">
       <svg
         width="23"
         height="24"
@@ -132,7 +132,7 @@
         </g>
       </svg>
     </div>
-    <div id="right-arrow">
+    <div id="right-arrow-{{ section.id }}">
       <svg
         width="23"
         height="24"
@@ -152,13 +152,13 @@
       </svg>
     </div>
   </div>
-  <div id="loadingBar"></div>
+  <div id="loadingBar-{{ section.id }}"></div>
   <blockquote>
-    <div id="testimonial"></div>
+    <div id="testimonial-{{ section.id }}"></div>
   </blockquote>
-  <div id="author"></div>
+  <div id="author-{{ section.id }}"></div>
   {% comment %} Storing testimonial data in a hidden div to be accessed by JS {% endcomment %}
-  <div style="display: none;" id="data">
+  <div style="display: none;" id="data-{{ section.id }}">
     {% for block in section.blocks %}
       <div data-testimonial="{{block.settings.testimonial}}" data-author="{{block.settings.author}}"></div>
     {% endfor %}
