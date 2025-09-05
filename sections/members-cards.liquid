@@ -1,0 +1,102 @@
+<style>
+  .membership-card {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-neutral-0);
+  }
+
+  .membership-card-wrapper img {
+    grid-column: span 4;
+    width: 100%;
+    height: auto;
+  }
+  .membership-link-card {
+    text-decoration: none;
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    gap: var(--space-md);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-round);
+    background-color: var(--color-orange-light);
+    }
+  .membership-link-card svg {
+    fill: var(--color-contrast);
+  }
+
+</style>
+
+<section class="membership-card-wrapper container">
+  <div class="membership-card">
+    <h4 class="title">{{ section.settings['title-1'] }}</h4>
+    <p class="description">{{ section.settings['description-1'] }}</p>
+  </div>
+
+  <div class="membership-card">
+    <h4 class="title">{{ section.settings['title-2'] }}</h4>
+    <p class="description">{{ section.settings['description-2'] }}</p>
+  </div>
+
+  <div class="membership-card">
+    <h4 class="title">{{ section.settings['title-3'] }}</h4>
+    <p class= "description">{{ section.settings['description-3'] }}</p>
+  </div>
+
+    <a href="#" class="membership-link-card rand-hover">
+      {% render 'icon-up-right' %} 
+      <h4>Become a member</h4>
+    </a>
+
+</section>
+
+{% schema %}
+{
+  "name": "Membership Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title-1",
+      "label": "Title 1",
+      "default": "Access to performance opportunities"
+    },
+    {
+      "type": "textarea",
+      "id": "description-1",
+      "label": "Description 1",
+      "default": "Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. "
+    },
+    {
+      "type": "text",
+      "id": "title-2",
+      "label": "Title 2",
+      "default": "Involvement in our community meetings"
+    },
+    {
+      "type": "textarea",
+      "id": "description-2",
+      "label": "Description 2",
+      "default": "Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+    },
+    {
+      "type": "text",
+      "id": "title-3",
+      "label": "Title 3",
+      "default": "Networking & collaboration"
+    },
+    {
+      "type": "textarea",
+      "id": "description-3",
+      "label": "Description 3",
+      "default": "Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story."
+    }
+  ]
+}
+{% endschema %}
