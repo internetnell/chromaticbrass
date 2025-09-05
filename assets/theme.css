@@ -3,10 +3,11 @@
         --font-size-h1: 100px;
         --font-size-h2: 32px;
         --font-size-h3: 26px;
+        --font-size-h4: 20px;
 
         --font-size-body-large: 18px;
         --font-size-body: 14px;
-        --font-size-body-small: 12px;
+        --font-size-body-small: 11px;
 
         --font-size-label-large: 18px;
         --font-size-label: 16px;
@@ -73,6 +74,7 @@
         --space-lg: 35px;
         --space-xl: 55px;
         --space-xxl: 100px;
+        --space-xxxl: 135px;
 
         --space-page-margin: 60px;
         --space-gutter: 1px;
@@ -161,6 +163,15 @@ h3 {
         line-height: var(--line-height-title);
 }
 
+h4 {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h4);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-title);
+}
+
 .h2 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
@@ -174,6 +185,15 @@ h3 {
         font-family: "Helvetica Now Display", sans-serif;
         font-weight: 400;
         font-size: var(--font-size-h3);
+        margin: 0;
+        color: var(--color-contrast);
+        line-height: var(--line-height-title);
+}
+
+.h4 {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-size-h4);
         margin: 0;
         color: var(--color-contrast);
         line-height: var(--line-height-title);

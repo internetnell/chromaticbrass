@@ -14,10 +14,41 @@
     width: 100%;
     height: auto;
   }
+
+  /* ---------------- IMPACT ROW ----------------*/
+.impact-row {
+  margin: var(--space-xxxl) 0;
+}
+  .decoration-box {
+    grid-column: 1 / span 2;
+    border: 1px solid var(--color-contrast);
+    aspect-ratio: 1 / 1;
+}
+.decoration-horn {
+    fill: var(--color-contrast);
+    grid-column: 3 / span 2;
+    width: 100%;
+    height: auto;
+    }
+#shopify-section-impact {
+    grid-column: 6 / span 12;
+  }
 </style>
 
 <main>
   {% section 'page-title' %}
+
+  {% section 'what-we-do-cards' %}
+
+  <section class="impact-row container">
+    <div class="decoration-box"></div>
+
+    <svg class="decoration-horn" width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 76.95H85.0544C127.226 76.95 161.466 43.0334 162 0.991318V0V162C162 119.5 127.548 85.05 85.046 85.05H0V76.95Z"/>
+    </svg>
+
+    {% section 'impact' %}
+  </section>
 
   <section class="image-row-1 container">
     <img
@@ -69,7 +100,6 @@
     >
   </section>
 
-  {% section 'what-we-do-cards' %}
+  {% section 'supporters-accordion' %}
 
-    {% section 'testimonial' %}
 </main>

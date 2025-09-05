@@ -62,17 +62,8 @@
   .work-with-us-title {
     grid-column: 1 / span 4;
   }
-  #shopify-section-content-card {
-    display: contents;
-  }
-  .content-card-list {
+  .work-with-us-wrapper {
     grid-column: 5 / span 12;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    padding: 0;
-  }
-  .content-card-list {
-    width: 100%;
   }
 </style>
 
@@ -176,8 +167,8 @@
       <p>Learn more about our mission and how you can get involved.</p>
     </div>
 
-    <div class="content-card-list">
-      {% section 'content-card' %}
+    <div class="work-with-us-wrapper">
+    {% section 'work-with-us-card' %}
     </div>
   </section>
 </main>
