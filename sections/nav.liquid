@@ -1,64 +1,108 @@
 <style>
-nav {
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-nav svg {
-    fill: var(--color-contrast);
-    justify-content: left;
-    margin-left: var(--space-page-margin);
-}
-.menu-tagline {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    font-size: var(--font-size-body);
-}
-.shop-button {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    background-color: var(--color-bg);
-    border: 1px solid #000;
-    padding: var(--space-sm) var(--space-sm);
-    line-height: var(--line-height-title);
-    font-size: var(--font-size-body);
-    cursor: pointer;
-    border-radius: 40px;
-}
-.donate-button {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    background-color: var(--color-contrast);
-    color: var(--color-neutral-0);
-    padding: var(--space-sm) var(--space-sm);
-    line-height: var(--line-height-title);
-    font-size: var(--font-size-body);
-    cursor: pointer;
-    border-radius: 40px;
-    border: 1px solid #000;
-}
-.nav-button-group {
+.header-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--space-md) var(--space-page-margin);
+}
+.nav {
+display: none;
+}
+.header-button-group {
+    display: flex;
+    width: 20%;
+    justify-content: flex-end;
     gap: var(--space-sm);
-    margin-right: var(--space-page-margin);
+}
+.header-container p {
+    width: 60%;
+    text-align: center;
+}
+.hamburger-container {
+    width: 20%;
+}
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    padding: 15px;
+    margin-left: -10px;
+}
+.hamburger-menu-line {
+    display: flex;
+    width: 20px;
+    height: 1.5px;
+    background-color: var(--color-contrast);
+}
+.hamburger-menu.active span{
+    transform: translateY(-100%);
 }
 
+.hamburger-menu span::after{
+    content: attr(data-text);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: var(--color-contrast);
+    z-index: 999;
+}
+.nav.is-open {
+display: block;
+}
+
+.nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
 </style>
 
-<main>
-    <nav>
-        
-        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 15H0V14H14V15ZM14 8H0V7H14V8ZM14 1H0V0H14V1Z" fill="black"/>
-        </svg>
-        
-        <p class="menu-tagline">The future of brass music</p>
+<script>
+function nav(){
+    const navToggler = document.querySelector('.js-nav-toggler');
 
-        <div class="nav-button-group">
-            <button class="shop-button">Shop</button>
-            <button class="donate-button">Donate</button>
-        </div>
+    const toggleNav = () => {
+        navToggler.classList.toggle("active")
+    }
 
+    navToggler.addEventListener("click", toggleNav);
+    }
+
+    nav();
+
+
+</script>
+
+<header class="header-container">
+
+    <div class="hamburger-container">
+        <a class="hamburger-menu js-nav-toggler" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-menu-line"></span>
+            <span class="hamburger-menu-line"></span>
+            <span class="hamburger-menu-line"></span>
+            {% comment %} <span class="menu-close p-large" data-text="close">Close</span> {% endcomment %}
+        </a>
+    </div>
+
+    <nav class="nav js-nav">
+        <ul>
+        {% for link in linklists['main-menu'].links %}
+        <li class="nav-link"><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        </ul>
     </nav>
-</main>
+
+    <p>The future of brass music</p>
+    <div class="header-button-group">
+        <button class="secondary-button rand-hover">Contact</button>
+        <button class="rand-hover">Donate</button>
+    </div>
+
+</header>

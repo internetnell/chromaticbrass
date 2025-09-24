@@ -342,11 +342,31 @@ button {
         cursor: pointer;
         display: inline-block;
 }
-
 button:hover {
         cursor: pointer;
         color: var(--color-contrast);
         backdrop-filter: blur(1px);
+        border: 1px solid var(--color-contrast) !important;
+}
+.secondary-button {
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--font-size-body);
+        background-color: transparent;
+        color: var(--color-contrast);
+        margin: 0;
+        line-height: var(--line-height-body);
+        border: 1px solid var(--color-contrast);
+        border-radius: var(--radius-lg);
+        padding: var(--space-xs) var(--space-sm);
+        cursor: pointer;
+        display: inline-block;
+}
+.secondary-button:hover {
+        cursor: pointer;
+        backdrop-filter: blur(1px);
+        border: 1px solid var(--color-contrast);
 }
 
 /* Forms */
