@@ -1,0 +1,142 @@
+<style>
+  .performance-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 var(--space-page-margin);
+  }
+  .performance-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-contrast);
+  }
+  .performance-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-contrast);
+  }
+  /* Default order */
+  .performance-card .video-wrapper {
+    order: 1;
+  }
+  .performance-card .performance-text {
+    order: 2;
+  }
+  /* Flip on even cards */
+  .performance-card:nth-child(even) .video-wrapper {
+    order: 2;
+  }
+  .performance-card:nth-child(even) .performance-text {
+    order: 1;
+  }
+  .video-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  .video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .performance-text {
+    display: flex;
+    width: calc(50% - 2 * var(--space-md));
+    margin: var(--space-md) var(--space-md);
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .trailing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  @media (max-width: 768px) {
+    .performance-card {
+      flex-direction: column;
+    }
+    .performance-card .video-wrapper,
+    .performance-card .performance-text {
+      order: initial;
+      width: 100%;
+    }
+    /* Fix even-card flip */
+    .performance-card:nth-child(even) .video-wrapper,
+    .performance-card:nth-child(even) .performance-text {
+      order: initial;
+    }
+  }
+</style>
+
+<section class="performance-section">
+  {% for block in section.blocks %}
+    <div class="performance-card">
+      <div class="video-wrapper">
+        {{ block.settings.video | video_tag: class: 'performance-video' }}
+      </div>
+
+      <div class="performance-text">
+        <h2 class="title">{{ block.settings.title }}</h2>
+
+        <div class="trailing">
+          <p class="description">{{ block.settings.description }}</p>
+          <a href="{{ block.settings['performance-url'] }}" class="link">View</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+
+{% schema %}
+{
+  "name": "Performance Card Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Performance"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "performance-card",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Performance Video"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Performance"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Experience the groundbreaking debut of the Chromatic Brass Collective, where tradition meets bold new sound. This virtual concert marked the Collective’s first official performance, bringing together a radiant ensemble of brass musicians from across the country."
+        },
+        {
+          "type": "url",
+          "id": "performance-url",
+          "label": "Performance url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
