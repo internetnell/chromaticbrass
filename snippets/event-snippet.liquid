@@ -1,0 +1,59 @@
+<style>
+.event {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--color-contrast);
+    margin-top: -1px;
+    margin-left: -1px;
+}
+.leading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.top-left p, .top-right p {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-contrast);
+}
+.top-left, .top-right {
+    width: 50%;
+}
+.top-right {
+    text-align: right;
+}
+</style>
+
+{% assign event_link = link %}
+{% assign event_day = day %}
+{% assign event_date = date %}
+{% assign event_time = time %}
+{% assign event_location = location %}
+{% assign event_title = title %}
+{% assign event_description = description %}
+
+<a  href="{{ event_link }}" 
+    class="event rand-hover">
+        <div class="leading">
+            <div class="top-left">
+                <p class="day">{{ event_day }}</p>
+                <p class="date">{{ event_date }}</p>
+            </div>
+
+            <div class="top-right">
+                <p class="time">{{ event_time }}</p>
+                <p class="location">{{ event_location }}</p>
+            </div>
+        </div>
+
+        <div class="title-group">
+            <h3 class="title">{{ event_title }}</h3>
+            <p class="description p-small"> {{ event_description }}</p>
+        </div>
+ </a>

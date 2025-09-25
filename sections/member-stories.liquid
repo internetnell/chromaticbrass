@@ -1,0 +1,56 @@
+<style>
+.member-stories-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin: 0 var(--space-page-margin);
+    margin-top: var(--space-xl);
+    outline: 1px solid #FF0707;
+    background: rgba(255, 25, 25, 0.41);
+}
+
+.member-stories-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.member-stories-txt-cnt {
+    font-family: "Helvetica Now Display";
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: var(--space-md, 30px);
+    font-weight: 400;
+    line-height: 120%;
+    border: 1px solid var(--color-contrast);
+}
+
+</style>
+
+<div class="member-stories-container">
+    <div class="member-stories-txt-cnt">
+        <div>Member Stories</div>
+        <h2>Meet Navilla: A Voice in Brass</h2>
+    </div>
+    <div>
+        <img
+            class="member-stories-img"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/navilla.png?v=1758758005"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto">
+    </div>
+    <div class="member-stories-txt-cnt">
+        <div>Member Stories</div>
+        <h2>Bringing Her Whole Self to the Stage</h2>
+    </div>
+    <div>    
+        <img
+            class="member-stories-img"
+            src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/trumpet.png?v=1758757965"
+            alt="Player performing in a concert"
+            width="auto"
+            height="auto">
+    </div>
+</div>
