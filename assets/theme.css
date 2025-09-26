@@ -99,7 +99,7 @@
         font-family: 'Pragati';
         font-style: normal;
         font-weight: 400;
-        src: url('./pragati.woff2') format('woff2'),
+        src: url('./PragatiNarrow-Regular.ttf') format('woff2'),
 }
 
 @font-face {
