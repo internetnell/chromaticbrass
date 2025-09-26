@@ -100,82 +100,78 @@
         ],
         "settings": {}
       },
-      "content-card": {
-        "type": "content-card",
-        "blocks": {
-          "card_8yTn9H": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          },
-          "card_JxkHKR": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          },
-          "card_qPKpRN": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          },
-          "card_FtF4NX": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          },
-          "card_ReyAyR": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          },
-          "card_r9P9xM": {
-            "type": "card",
-            "settings": {
-              "title": "Sample Title",
-              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "card_8yTn9H",
-          "card_JxkHKR",
-          "card_qPKpRN",
-          "card_FtF4NX",
-          "card_ReyAyR",
-          "card_r9P9xM"
-        ],
-        "settings": {}
-      },
       "footer": {
         "type": "footer",
         "settings": {}
       },
       "page-title": {
         "type": "page-title",
-        "settings": {
-          "title": "Events",
-          "show_subtitle": false,
-          "subtitle": "A page description"
-        }
+        "settings": {}
       },
       "article-card": {
         "type": "article-card",
+        "settings": {}
+      },
+      "work-with-us-card": {
+        "type": "work-with-us-card",
+        "blocks": {
+          "card_Rr4CfE": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_9qcR9b": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_A9gjPa": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_CjQj68": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_BjcHnq": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          },
+          "card_Nihh7E": {
+            "type": "card",
+            "settings": {
+              "title": "Title",
+              "description": "Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "card_Rr4CfE",
+          "card_9qcR9b",
+          "card_A9gjPa",
+          "card_CjQj68",
+          "card_BjcHnq",
+          "card_Nihh7E"
+        ],
         "settings": {}
       }
     },

@@ -1,0 +1,21 @@
+<style>
+  .performance-title-section {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .performance-title-section h2 {
+    display: grid;
+    grid-column: 1 / span 8;
+  }
+  .performance-title-section p {
+    display: grid;
+    grid-column: 1 / span 6;
+  }
+</style>
+
+<div class="container performance-title-section">
+  <h2>{{ page.title }}</h2>
+
+  <p class="p-large">{{ page.content }}</p>
+</div>

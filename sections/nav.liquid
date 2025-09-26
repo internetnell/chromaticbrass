@@ -1,64 +1,182 @@
 <style>
-nav {
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-nav svg {
-    fill: var(--color-contrast);
-    justify-content: left;
-    margin-left: var(--space-page-margin);
-}
-.menu-tagline {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    font-size: var(--font-size-body);
-}
-.shop-button {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    background-color: var(--color-bg);
-    border: 1px solid #000;
-    padding: var(--space-sm) var(--space-sm);
-    line-height: var(--line-height-title);
-    font-size: var(--font-size-body);
-    cursor: pointer;
-    border-radius: 40px;
-}
-.donate-button {
-    font-family: 'Helvetica Now Display', sans-serif;
-    font-weight: 400;
-    background-color: var(--color-contrast);
-    color: var(--color-neutral-0);
-    padding: var(--space-sm) var(--space-sm);
-    line-height: var(--line-height-title);
-    font-size: var(--font-size-body);
-    cursor: pointer;
-    border-radius: 40px;
-    border: 1px solid #000;
-}
-.nav-button-group {
+  #shopify-section-nav {
+    position: sticky;
+    top: var(--space-sm);
+  }
+
+  .leading-nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--space-sm) var(--space-page-margin) var(--space-xs) var(--space-page-margin);
+  }
+
+  .chromatic-brass {
+    display: flex;
+    grid-column: 1 / span 16;
+    width: 100%;
+  }
+  .chromatic-brass-logo {
+    width: calc(100vw - 120px);
+    height: auto;
+    filter: invert(1);
+  }
+
+  .header-button-group {
+    display: flex;
+    width: 20%;
+    justify-content: flex-end;
     gap: var(--space-sm);
-    margin-right: var(--space-page-margin);
+  }
+  .header-container p {
+    width: 60%;
+    text-align: center;
+  }
+  .hamburger-container {
+    width: 20%;
+  }
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    padding: 15px;
+    margin-left: -10px;
+  }
+  .hamburger-menu-line {
+    display: flex;
+    width: 20px;
+    height: 1.5px;
+    background-color: var(--color-contrast);
+  }
+
+  .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    z-index: 9999;
+    background: var(--color-yellow-strong);
+}
+.nav-list {
+list-style: none;
+margin: 0;
+padding: 0;
+padding-bottom: var(--space-sm);
+}
+.nav-overlay button {
+grid-column: 15 / span 1;
 }
 
+.nav-overlay ul {
+margin: 0;
+padding: 0;
+grid-column: 1 / span 16;
+}
+
+.nav-link {
+color: var(--color-bg);
+text-decoration: none;
+}
 </style>
 
-<main>
-    <nav>
-        
-        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 15H0V14H14V15ZM14 8H0V7H14V8ZM14 1H0V0H14V1Z" fill="black"/>
-        </svg>
-        
-        <p class="menu-tagline">The future of brass music</p>
+<header class="header-container">
+  <div class="leading-nav">
+    <div class="hamburger-container">
+      <a class="hamburger-menu js-nav-toggler" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-menu-line"></span>
+        <span class="hamburger-menu-line"></span>
+        <span class="hamburger-menu-line"></span>
+      </a>
+    </div>
 
-        <div class="nav-button-group">
-            <button class="shop-button">Shop</button>
-            <button class="donate-button">Donate</button>
-        </div>
+    <nav class="nav js-nav">
+      <div class="nav-overlay container">
+        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</button>
 
+        <ul>
+          {% for link in linklists['main-nav'].links %}
+            <li class="h2 nav-list">
+              <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </nav>
-</main>
+
+    <p>The future of brass music</p>
+    <div class="header-button-group">
+      <button class="secondary-button rand-hover">Contact</button>
+      <button class="rand-hover">Donate</button>
+    </div>
+  </div>
+
+  <div class="chromatic-brass container">
+    <img
+      class="chromatic-brass-logo"
+      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/chromatic-brass-logo.svg?v=1758841961"
+      alt="Chromatic Brass Collective logo"
+      height="auto"
+      width="auto"
+    >
+  </div>
+</header>
+
+<script>
+  function openNav(e) {
+    if (e) e.preventDefault();
+    const nav = document.querySelector('.js-nav');
+    const navToggler = document.querySelector('.js-nav-toggler');
+    if (!nav || !navToggler) return;
+
+    // Show and expand overlay
+    nav.style.display = 'block';
+    nav.style.width = '100%';
+
+    // Button state + a11y
+    navToggler.classList.add('active');
+    navToggler.setAttribute('aria-expanded', 'true');
+
+    // Optional: lock body scroll while menu is open
+    document.body.classList.add('no-scroll');
+  }
+
+  // Closes the overlay nav by setting width to 0
+  function closeNav(e) {
+    if (e) e.preventDefault();
+    const nav = document.querySelector('.js-nav');
+    const navToggler = document.querySelector('.js-nav-toggler');
+    if (!nav || !navToggler) return;
+
+    nav.style.width = '0%';
+
+    // After the width transition ends, hide it for accessibility/interaction
+    const onTransitionEnd = () => {
+      nav.style.display = 'none';
+      nav.removeEventListener('transitionend', onTransitionEnd);
+    };
+    nav.addEventListener('transitionend', onTransitionEnd);
+
+    navToggler.classList.remove('active');
+    navToggler.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+  }
+
+  // Hook up the hamburger to open the nav
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggler = document.querySelector('.js-nav-toggler');
+    if (!navToggler) return;
+
+    navToggler.addEventListener('click', openNav);
+
+    // Close on Escape for accessibility
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav(e);
+    });
+  });
+</script>

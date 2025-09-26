@@ -1,5 +1,10 @@
 <style>
-.content-card {
+  .work-with-us-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0;
+  }
+  .work-with-us-card {
     display: flex;
     flex-direction: column;
     padding: var(--space-md);
@@ -8,30 +13,28 @@
     aspect-ratio: 1 / 1;
     background-color: var(--color-neutral-0);
     border: 1px solid var(--color-bg);
-}
-.top {
+  }
+  .top {
     display: flex;
     flex-direction: row;
     width: 100%;
-}
+  }
 </style>
     
-
+<section class="work-with-us-card-list">
 {% for block in section.blocks %}
+  <div class="work-with-us-card rand-hover">
+    <div class="top">
+        <h3 class="title">{{ block.settings.title }}</h3>
+    </div>
 
-<div class="content-card rand-hover">
-    
-            <div class="top">
-                <h3 class="title">{{ block.settings.title }}</h3>
-            </div>
-
-        <div class="trailing-group">
-            <p class="p-small description">{{ block.settings.description }}</p>
-            <a class="link">Book {{ block.settings.link }}</a>
-        </div>
-</div>
-
+    <div class="trailing-group">
+        <p class="p-small description">{{ block.settings.description }}</p>
+        <a class="link">Book {{ block.settings.link }}</a>
+    </div>
+  </div>
 {% endfor %}
+</section>
 
 
 
@@ -49,7 +52,7 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Sample Title"
+          "default": "Title"
         },
         {
           "type": "textarea",
