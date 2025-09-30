@@ -80,7 +80,11 @@
         --space-gutter: 1px;
 }
 
-
+@media (max-width: 768px) {
+ :root {
+        --space-page-margin: 20px;
+}
+}
 
 /* Font Declarations */
 @font-face {

@@ -2,10 +2,9 @@
     /* ---------------- Hero ----------------*/
 
   .chromatic-brass {
-    position: relative;
     display: flex;
     width: 100%;
-    margin-top: var(--space-xxl);
+    margin-top: 74px;
   }
   .chromatic-brass-logo {
     width: calc(100vw - 120px);
@@ -15,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/hero.png?v=1755589803');
+    background-image: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/hero.png?v=1759268890');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -75,6 +74,18 @@
   .work-with-us-wrapper {
     grid-column: 5 / span 12;
   }
+
+/* ---------------- MOBILE ----------------*/
+
+  @media (max-width: 768px) {
+  .hero h3 {
+      width: 100%;
+    }
+    .chromatic-brass-logo {
+    width: calc(100vw - 40px);
+    height: auto;
+    }
+  }
 </style>
 
 <main>
@@ -82,10 +93,11 @@
     <div class="chromatic-brass">
       <img
         class="chromatic-brass-logo"
-        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/chromatic-brass-logo.svg?v=1758841961"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/chromatic-brass-logo.svg?v=1759268429"
         alt="Chromatic Brass Collective logo"
         height="auto"
-        width="auto" >
+        width="auto"
+ >
     </div>
 
     <h3 class="description">
