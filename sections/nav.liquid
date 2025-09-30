@@ -1,25 +1,16 @@
 <style>
   #shopify-section-nav {
-    position: sticky;
+    position: fixed;
     top: var(--space-sm);
+    width: 100%;
   }
 
   .leading-nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: var(--space-sm) var(--space-page-margin) var(--space-xs) var(--space-page-margin);
-  }
-
-  .chromatic-brass {
-    display: flex;
-    grid-column: 1 / span 16;
-    width: 100%;
-  }
-  .chromatic-brass-logo {
-    width: calc(100vw - 120px);
-    height: auto;
-    filter: invert(1);
   }
 
   .header-button-group {
@@ -60,7 +51,7 @@
     width: 0;
     height: 100vh;
     overflow-x: hidden;
-    z-index: 9999;
+    z-index: 999;
     background: var(--color-yellow-strong);
 }
 .nav-list {
@@ -114,16 +105,6 @@ text-decoration: none;
       <button class="secondary-button rand-hover">Contact</button>
       <button class="rand-hover">Donate</button>
     </div>
-  </div>
-
-  <div class="chromatic-brass container">
-    <img
-      class="chromatic-brass-logo"
-      src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/chromatic-brass-logo.svg?v=1758841961"
-      alt="Chromatic Brass Collective logo"
-      height="auto"
-      width="auto"
-    >
   </div>
 </header>
 

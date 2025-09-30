@@ -1,5 +1,20 @@
 <style>
+    /* ---------------- Hero ----------------*/
+
+  .chromatic-brass {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-top: var(--space-xxl);
+  }
+  .chromatic-brass-logo {
+    width: calc(100vw - 120px);
+    height: auto;
+  }
   .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-image: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/hero.png?v=1755589803');
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,10 +22,11 @@
   }
   .hero h3 {
     grid-column: 1 / span 8;
+    width: 55%;
   }
 
   .description {
-    padding-bottom: 100px;
+    padding-bottom: var(--space-lg);
   }
 
   /* ---------------- EVENTS ----------------*/
@@ -63,6 +79,14 @@
 
 <main>
   <section class="hero container">
+    <div class="chromatic-brass">
+      <img
+        class="chromatic-brass-logo"
+        src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/chromatic-brass-logo.svg?v=1758841961"
+        alt="Chromatic Brass Collective logo"
+        height="auto"
+        width="auto" >
+    </div>
 
     <h3 class="description">
       The Chromatic Brass Collective, founded by Black women, is an organization for brass musicians that celebrates,
@@ -85,43 +109,50 @@
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-1.png?v=1756771221"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-2"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-2.png?v=1756771221"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-2"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-1.png?v=1756771221"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-2"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-1.png?v=1756771220"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-4"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-2.png?v=1756771221"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-2"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/abstract-2.png?v=1756771220"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
     <img
       class="img-col-2"
       src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-3.png?v=1756771221"
       alt="Player performing in a concert"
       width="auto"
-      height="auto">
+      height="auto"
+    >
   </section>
 
   <section class="work-with-us container">
@@ -133,7 +164,6 @@
     <div class="work-with-us-wrapper">
       {% section 'work-with-us-card' %}
     </div>
-
-    </section>
-    {% section 'member-stories' %}
+  </section>
+  {% section 'member-stories' %}
 </main>
