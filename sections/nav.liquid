@@ -2,7 +2,7 @@
   #shopify-section-nav {
     position: fixed;
     width: 100%;
-    {% comment %} mix-blend-mode: exclusion; {% endcomment %}
+    mix-blend-mode: difference; 
   }
 
   .leading-nav {
@@ -19,20 +19,21 @@
     justify-content: flex-end;
     gap: var(--space-sm);
   }
-  {% comment %} .contact-button {
+
+  .contact-button {
     border: 1px solid var(--color-bg);
     background: transparent;
     color: var(--color-bg);
   }
-   .donate-button {
+  .donate-button {
     border: 1px solid var(--color-bg);
     background: var(--color-bg);
     color: var(--color-contrast);
-  } {% endcomment %}
+  }
   .header-container p {
     width: 60%;
     text-align: center;
-    color: var(--color-contrast);
+    color: var(--color-bg);
   }
   .hamburger-container {
     width: 20%;
@@ -52,39 +53,14 @@
     display: flex;
     width: 20px;
     height: 1.5px;
-    background-color: var(--color-contrast);
+    background-color: var(--color-bg);
   }
-
-  .nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 100vh;
-    overflow-x: hidden;
-    z-index: 999;
-    background: var(--color-yellow-strong);
-}
-.nav-list {
-list-style: none;
-margin: 0;
-padding: 0;
-padding-bottom: var(--space-sm);
-}
-.nav-overlay button {
-grid-column: 15 / span 1;
-}
-
-.nav-overlay ul {
-margin: 0;
-padding: 0;
-grid-column: 1 / span 16;
-}
-
-.nav-link {
-color: var(--color-bg);
-text-decoration: none;
-}
+  /* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+    .header-container p {
+      display: none;
+    }
+  }
 </style>
 
 <header class="header-container">
@@ -97,78 +73,10 @@ text-decoration: none;
       </a>
     </div>
 
-    <nav class="nav js-nav">
-      <div class="nav-overlay container">
-        <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</button>
-
-        <ul>
-          {% for link in linklists['main-nav'].links %}
-            <li class="h2 nav-list">
-              <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </nav>
-
-    <p>The future of brass music</p>
+    <p class="tagline">The future of brass music</p>
     <div class="header-button-group">
       <button class="contact-button secondary-button rand-hover">Contact</button>
       <button class="donate-button rand-hover">Donate</button>
     </div>
   </div>
 </header>
-
-<script>
-  function openNav(e) {
-    if (e) e.preventDefault();
-    const nav = document.querySelector('.js-nav');
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (!nav || !navToggler) return;
-
-    // Show and expand overlay
-    nav.style.display = 'block';
-    nav.style.width = '100%';
-
-    // Button state + a11y
-    navToggler.classList.add('active');
-    navToggler.setAttribute('aria-expanded', 'true');
-
-    // Optional: lock body scroll while menu is open
-    document.body.classList.add('no-scroll');
-  }
-
-  // Closes the overlay nav by setting width to 0
-  function closeNav(e) {
-    if (e) e.preventDefault();
-    const nav = document.querySelector('.js-nav');
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (!nav || !navToggler) return;
-
-    nav.style.width = '0%';
-
-    // After the width transition ends, hide it for accessibility/interaction
-    const onTransitionEnd = () => {
-      nav.style.display = 'none';
-      nav.removeEventListener('transitionend', onTransitionEnd);
-    };
-    nav.addEventListener('transitionend', onTransitionEnd);
-
-    navToggler.classList.remove('active');
-    navToggler.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('no-scroll');
-  }
-
-  // Hook up the hamburger to open the nav
-  document.addEventListener('DOMContentLoaded', () => {
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (!navToggler) return;
-
-    navToggler.addEventListener('click', openNav);
-
-    // Close on Escape for accessibility
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeNav(e);
-    });
-  });
-</script>
