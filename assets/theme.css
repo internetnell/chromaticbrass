@@ -7,7 +7,7 @@
 
         --font-size-body-large: 18px;
         --font-size-body: 14px;
-        --font-size-body-small: 11px;
+        --font-size-body-small: 12px;
 
         --font-size-label-large: 18px;
         --font-size-label: 16px;
@@ -86,6 +86,7 @@
 @media (max-width: 768px) {
  :root {
         --space-page-margin: 20px;
+        --font-size-body-small: 14px;
 }
 }
 

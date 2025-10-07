@@ -33,6 +33,25 @@
 #shopify-section-impact {
     grid-column: 6 / span 12;
   }
+
+/* ---------------- Tablet ----------------*/
+
+  @media (max-width: 1024px) {
+  
+  }
+
+/* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+  .decoration-box {
+    display: none;
+  }
+  .decoration-horn {
+    display: none;
+  }
+  #shopify-section-impact {
+    grid-column: 1 / span 16;
+  }
+}
 </style>
 
 <main>
@@ -99,8 +118,7 @@
       height="auto"
     >
   </section>
-  
-  {% section 'what-we-do-cards' %}
+
   
   {% section 'testimony-carousel' %}
   
