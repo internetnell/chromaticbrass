@@ -19,6 +19,20 @@
     flex-direction: row;
     width: 100%;
   }
+  /* ---------------- Tablet ----------------*/
+  @media (max-width: 1024px) {
+    .work-with-us-card-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+/* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+    .work-with-us-card-list {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+
 </style>
     
 <section class="work-with-us-card-list">

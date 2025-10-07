@@ -75,9 +75,12 @@
         --space-xl: 55px;
         --space-xxl: 100px;
         --space-xxxl: 135px;
-
         --space-page-margin: 60px;
         --space-gutter: 1px;
+
+        /* Media Queries */
+        --mq-mobile: 768px;
+        --mq-tablet: 1024px;
 }
 
 @media (max-width: 768px) {

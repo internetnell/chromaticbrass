@@ -21,6 +21,22 @@
   .select {
     grid-column: 13 / span 4;
 }
+/* ---------------- Tablet ----------------*/
+  @media (max-width: 1024px) {
+    .events-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-column: 1 / span 16;
+    }
+  }
+
+/* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+  .events-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-column: 1 / span 16;
+    }
+  }
+
 </style>
 
 {% section 'page-title' %}

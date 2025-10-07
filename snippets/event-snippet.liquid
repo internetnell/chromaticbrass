@@ -21,6 +21,7 @@
     flex-direction: column;
     width: 100%;
     color: var(--color-contrast);
+    font-size: var(--font-size-body-small);
 }
 .top-left, .top-right {
     width: 50%;
@@ -28,24 +29,10 @@
 .top-right {
     text-align: right;
 }
+.title-group .title {
+    margin-bottom: var(--space-xxs);
+  }
 
-@media (max-width: 768px) {
-  .event {
-    flex-direction: column;
-    aspect-ratio: auto;
-  }
-  .leading {
-    flex-direction: column;
-    text-align: left;
-  }
-  .top-left, .top-right {
-    width: 100%;
-    text-align: left;
-  }
-  .top-right {
-    margin-top: var(--space-sm);
-  }
-}
 </style>
 
 {% assign event_link = link %}
