@@ -21,15 +21,37 @@
   }
 
   .contact-button {
-    border: 1px solid var(--color-bg);
+    font-family: "Helvetica Now Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size-body);
     background: transparent;
     color: var(--color-bg);
-  }
-  .donate-button {
+    margin: 0;
+    line-height: var(--line-height-body);
     border: 1px solid var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xs) var(--space-sm);
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .donate-button {
+    font-family: "Helvetica Now Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size-body);
     background: var(--color-bg);
     color: var(--color-contrast);
+    margin: 0;
+    line-height: var(--line-height-body);
+    border: 1px solid var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xs) var(--space-sm);
+    cursor: pointer;
+    display: inline-block;
   }
+
   .header-container p {
     width: 60%;
     text-align: center;
@@ -75,8 +97,8 @@
 
     <p class="tagline">The future of brass music</p>
     <div class="header-button-group">
-      <button class="contact-button secondary-button rand-hover">Contact</button>
-      <button class="donate-button rand-hover">Donate</button>
+      <a class="contact-button">Contact</a>
+      <a class="donate-button">Donate</a>
     </div>
   </div>
 </header>
