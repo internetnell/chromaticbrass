@@ -1,57 +1,102 @@
 <style>
-.event {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-md);
-    text-decoration: none;
-    justify-content: space-between;
-    cursor: pointer;
-    aspect-ratio: 1 / 1;
-    border: 1px solid var(--color-contrast);
-    margin-top: -1px;
-    margin-left: -1px;
-    background-color: var(--color-bg);
-}
-.leading {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-.top-left p, .top-right p {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: var(--color-contrast);
-    font-size: var(--font-size-body-small);
-}
-.top-left, .top-right {
-    width: 50%;
-}
-.top-right {
-    text-align: right;
-}
-.title-group .title {
-    margin-bottom: var(--space-xxs);
-  }
+    .event {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-md);
+        text-decoration: none;
+        justify-content: space-between;
+        cursor: pointer;
+        aspect-ratio: 1 / 1;
+        border: 1px solid var(--color-contrast);
+        margin-top: -1px;
+        margin-left: -1px;
+        background-color: var(--color-bg);
+    }
 
+    .leading {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .top-left p,
+    .top-right p {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        color: var(--color-contrast);
+        font-size: var(--font-size-body-small);
+    }
+
+    .top-left,
+    .top-right {
+        width: 50%;
+    }
+
+    .top-right {
+        text-align: right;
+    }
+
+    .title-group .title {
+        margin-bottom: var(--space-xxs);
+    }
+
+    .past:hover {
+        background: var(--color-bg-hover);
+        border-radius: 999px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+    }
+
+    .past {
+        background-color: var(--color-bg-hover);
+    }
+
+    .past-top-right {
+        text-align: right;
+        opacity: 0.7;
+    }
+
+    .past-title-group .past-title {
+        margin-bottom: var(--space-xxs);
+        opacity: 0.7;
+    }
+
+    .past-description {
+        opacity: 0.7;
+    }
 </style>
 
-<a target="_blank" href="{{ link }}" 
-    class="event rand-hover">
-        <div class="leading">
-            <div class="top-left">
+{% liquid
+assign isPast = false
+assign classname = "event"
+assign then =  datetime | date: "%s"
+assign now = "now" | date: "%s"
+if then <= now
+    assign classname = "event past"
+    assign isPast = true
+endif
+%}
+
+<a target="_blank" href="{{ link }}" class="{{classname}} rand-hover">
+    <div class="leading">
+        <div class="top-left">
+            {% if isPast %}
+                {% render 'chip', text: 'Past event' %}
+            {% else %}
                 <p class="day">{{ datetime | date: '%A' }}</p>
                 <p class="date">{{ datetime | date: '%b %d' }}</p>
-            </div>
-
-            <div class="top-right">
-                <p class="time">{{ datetime | date: '%l %p %Z' }}</p>
-                <p class="location">{{ location }}</p>
-            </div>
+            {% endif %}
         </div>
 
-        <div class="title-group">
-            <h3 class="title">{{ title }}</h3>
-            <p class="description p-small"> {{ description }}</p>
+        <div class="top-right">
+            <p class="time">{{ datetime | date: '%l %p %Z' }}</p>
+            <p class="location">{{ location }}</p>
         </div>
- </a>
+    </div>
+
+    <div class="title-group">
+        <h3 class="title">{{ title }}</h3>
+        <p class="description p-small"> {{ description }}</p>
+    </div>
+</a>
