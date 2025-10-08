@@ -45,17 +45,11 @@
     opacity: 0.7;
 }
 
-
-
 </style>
 
-{% assign event_link = link %}
-{% assign event_date = date %}
-{% assign event_location = location %}
-{% assign event_title = title %}
-{% assign event_description = description %}
 
-<a  href="{{ event_link }}" 
+
+<a target="_blank" href="{{ link }}" 
     class="past-event">
         <div class="past-leading">
             <div class="past-top-left">
@@ -63,13 +57,13 @@
             </div>
 
             <div class="past-top-right">
-                <p class="past-time">{{ event_date }}</p>
-                <p class="past-location">{{ event_location }}</p>
+                <p class="past-date">{{ datetime | date: '%b %d' }}</p>
+                <p class="past-location">{{ location }}</p>
             </div>
         </div>
 
         <div class="past-title-group">
-            <h3 class="past-title">{{ event_title }}</h3>
-            <p class="past-description p-small"> {{ event_description }}</p>
+            <h3 class="past-title">{{ title }}</h3>
+            <p class="past-description p-small"> {{ description }}</p>
         </div>
  </a>
