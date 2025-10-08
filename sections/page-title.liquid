@@ -10,8 +10,42 @@
     width: 75%;
     max-width: 900px;
   }
-</style>
+  .page-title {
+    font-size: clamp(4rem, 8vw, 10rem);
+  }
 
+  /* ---------------- Tablet ----------------*/
+  @media (max-width: 1024px) {
+    .page-title-section {
+      padding-top: 55px;
+    }
+
+
+    
+  }
+
+  /* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+    .page-title-section {
+      padding-top: 75px;
+    }
+  }
+
+    {% if page.metafields.custom.page_description %}
+    @media (max-width: 768px) {
+      .page-title-section {
+        padding-top: 75px;
+        height: 90vh;
+        justify-content: space-between;
+      }
+      .page-description {
+        font-size: var(--font-size-h3);
+        width: 95%;
+        margin-bottom: var(--space-lg);
+      }
+    }
+    {% endif %}
+</style>
 
 <div class="page-title-section">
   <h1 class="page-title">{{ page.title }}</h1>
@@ -19,4 +53,3 @@
     <h2 class="page-description">{{ page.metafields.custom.page_description }}</h2>
   {% endif %}
 </div>
-

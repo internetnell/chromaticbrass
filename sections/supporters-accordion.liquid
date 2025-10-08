@@ -1,10 +1,24 @@
 <style>
-    .supporters-section {
-margin: var(--space-xxl) 0;
-    }
+  .supporters-section {
+    margin: var(--space-xxl) 0;
+  }
   .supporters-section h2 {
     grid-column: 1 / span 7;
   }
+  .donor-cta-container {
+    display: flex;
+    flex-direction: row;
+    border-top: none;
+    padding: 0 0 var(--space-md) 0;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .button-container {
+    display: flex;
+    align-items: center;
+  }
+
   .accordion {
     grid-column: 9 / span 8;
     list-style: none;
@@ -38,8 +52,44 @@ margin: var(--space-xxl) 0;
     transition: max-height 1s ease;
   }
   .accordion input[type='radio']:checked + label + .content {
-    max-height: 600px; 
+    max-height: 600px;
     margin-top: var(--space-sm);
+  }
+  /* ---------------- Tablet ----------------*/
+
+  @media (max-width: 1224px) {
+    .supporters-section h2 {
+      grid-column: 1 / span 3;
+    }
+    .accordion {
+      grid-column: 5 / span 9;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  /* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+    .donor-cta-container {
+      display: flex;
+      flex-direction: row;
+      border-top: none;
+      padding: 0 0 var(--space-md) 0;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .donor-cta-container h4 {
+      font-size: var(--font-size-body);
+    }
+    .supporters-section h2 {
+      grid-column: 1 / span 16;
+      margin-bottom: var(--space-xl);
+    }
+    .accordion {
+      grid-column: 1 / span 16;
+    }
   }
 </style>
 
@@ -47,13 +97,20 @@ margin: var(--space-xxl) 0;
   <h2 class="h2">{{ section.settings.title }}</h2>
 
   <ul class="accordion">
+    <div class="donor-cta-container">
+      <h4>{{ section.settings['donor-cta'] }}</h4>
+      <div class="button-container">
+        <button class="rand-hover">Donate</button>
+      </div>
+    </div>
+
     <li>
       <input
         type="radio"
         name="accordion"
-        id="first"
+        id="second"
       >
-      <label class="accordion-label h4" for="first">
+      <label class="accordion-label h4" for="second">
         {{ section.settings['accordion-1-title'] }}
         {% render 'icon-plus' %}
       </label>
@@ -67,31 +124,15 @@ margin: var(--space-xxl) 0;
       <input
         type="radio"
         name="accordion"
-        id="second"
+        id="third"
       >
-      <label class="accordion-label h4" for="second">
+      <label class="accordion-label h4" for="third">
         {{ section.settings['accordion-2-title'] }}
         {% render 'icon-plus' %}
       </label>
 
       <div class="content">
         <p>{{ section.settings['accordion-2-content'] | newline_to_br }}</p>
-      </div>
-    </li>
-
-    <li>
-      <input
-        type="radio"
-        name="accordion"
-        id="third"
-      >
-      <label class="accordion-label h4" for="third">
-        {{ section.settings['accordion-3-title'] }}
-        {% render 'icon-plus' %}
-      </label>
-
-      <div class="content">
-        <p>{{ section.settings['accordion-3-content'] | newline_to_br }}</p>
       </div>
     </li>
   </ul>
@@ -110,40 +151,36 @@ margin: var(--space-xxl) 0;
     /* Row 1 */
     {
       "type": "text",
+      "id": "donor-cta",
+      "label": "Donor CTA",
+      "default": "Your donation helps us perform, mentor, and inspire the next generation of brass musicians."
+    },
+
+    /* Row 2 */
+    {
+      "type": "text",
       "id": "accordion-1-title",
-      "label": "1. Subtitle",
+      "label": "Subtitle",
       "default": "Donors"
     },
     {
       "type": "textarea",
       "id": "accordion-1-content",
-      "label": "1. Content",
+      "label": "Content",
       "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
     },
-    /* Row 2 */
+
+    /* Row 3 */
     {
       "type": "text",
       "id": "accordion-2-title",
-      "label": "2. Subtitle",
+      "label": "Subtitle",
       "default": "Collaborators"
     },
     {
       "type": "textarea",
       "id": "accordion-2-content",
-      "label": "2. Content",
-      "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
-    },
-    /* Row 3 */
-    {
-      "type": "text",
-      "id": "accordion-3-title",
-      "label": "3. Subtitle",
-      "default": "Sponsors & Affiliates"
-    },
-    {
-      "type": "textarea",
-      "id": "accordion-3-content",
-      "label": "3. Content",
+      "label": "Content",
       "default": "Full Name Full Name Full Name Full Name Full Name Full Name Full Name Full Name "
     }
   ]

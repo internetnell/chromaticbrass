@@ -1,166 +1,169 @@
 <style>
+    .impact-wrapper {
+        display: grid;
+        grid-template-columns: repeat(11, minmax(0, 1fr));
+        gap: var(--space-gutter);
+    }
 
-.impact-wrapper {
-    display: grid;
-    grid-template-columns: repeat(11, minmax(0, 1fr));
-    gap: var(--space-gutter);
-}
-
-.impact-section-title {
-    grid-column: 1 / span 11;
-}
-.impact-section-title {
-    margin-bottom: var(--space-xl);
-}
-.impact-group {
-    display: flex;
-    flex-direction: row;
-    border-top: 1px solid var(--color-contrast);
-    padding-top: var(--space-sm);
-    padding-bottom: var(--space-sm);
-}
-.impact-group.col-1 {
-grid-column: 1 / span 5;
-}
-.impact-group.col-2 {
-grid-column: 7 / span 5;
-}
-.impact-group p {
-    width: 60%;
-}
-.impact-group h2 {
-    width: 40%;
-    text-align: right;
-}
-
-
+    .impact-section-title {
+        grid-column: 1 / span 11;
+    }
+    .impact-section-title {
+        margin-bottom: var(--space-xl);
+    }
+    .impact-group {
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid var(--color-contrast);
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+    }
+    .impact-group.col-1 {
+    grid-column: 1 / span 5;
+    }
+    .impact-group.col-2 {
+    grid-column: 7 / span 5;
+    }
+    .impact-group p {
+        width: 60%;
+    }
+    .impact-group h2 {
+        width: 40%;
+        text-align: right;
+    }
+    /* ---------------- Mobile ----------------*/
+      @media (max-width: 768px) {
+    .impact-group.col-1 {
+    grid-column: 1 / span 12;
+    }
+    .impact-group.col-2 {
+    grid-column: 1 / span 12;
+    }
+  }
 </style>
 
-
 <section class="impact-wrapper">
-    <h2 class="impact-section-title"> {{ section.settings.title }} </h2>
+  <h2 class="impact-section-title">{{ section.settings.title }}</h2>
 
-        <div class="impact-group col-1">
-            <p>{{ section.settings.metric-description-1 }}</p>
-            <h2>{{ section.settings.metric-number-1 }}</h2>
-        </div>
+  <div class="impact-group col-1">
+    <p>{{ section.settings['metric-description-1'] }}</p>
+    <h2>{{ section.settings['metric-number-1'] }}</h2>
+  </div>
 
-        <div class="impact-group col-2">
-            <p>{{ section.settings.metric-description-2 }}</p>
-            <h2>{{ section.settings.metric-number-2 }}</h2>
-        </div>
+  <div class="impact-group col-2">
+    <p>{{ section.settings['metric-description-2'] }}</p>
+    <h2>{{ section.settings['metric-number-2'] }}</h2>
+  </div>
 
-        <div class="impact-group col-1">
-            <p>{{ section.settings.metric-description-3 }}</p>
-            <h2>{{ section.settings.metric-number-3 }}</h2>
-        </div>
+  <div class="impact-group col-1">
+    <p>{{ section.settings['metric-description-3'] }}</p>
+    <h2>{{ section.settings['metric-number-3'] }}</h2>
+  </div>
 
-        <div class="impact-group col-2">
-            <p>{{ section.settings.metric-description-4 }}</p>
-            <h2>{{ section.settings.metric-number-4 }}</h2>
-        </div>
-        
-        <div class="impact-group col-1">
-            <p>{{ section.settings.metric-description-5 }}</p>
-            <h2>{{ section.settings.metric-number-5 }}</h2>
-        </div>
+  <div class="impact-group col-2">
+    <p>{{ section.settings['metric-description-4'] }}</p>
+    <h2>{{ section.settings['metric-number-4'] }}</h2>
+  </div>
 
-        <div class="impact-group col-2">
-            <p>{{ section.settings.metric-description-6 }}</p>
-            <h2>{{ section.settings.metric-number-6 }}</h2>
-        </div>
+  <div class="impact-group col-1">
+    <p>{{ section.settings['metric-description-5'] }}</p>
+    <h2>{{ section.settings['metric-number-5'] }}</h2>
+  </div>
 
+  <div class="impact-group col-2">
+    <p>{{ section.settings['metric-description-6'] }}</p>
+    <h2>{{ section.settings['metric-number-6'] }}</h2>
+  </div>
 </section>
-
 
 {% schema %}
 {
-    "name": "Impact Section",
-    "settings": [
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Impact Title",
-            "default": "Our impact at a glance"
-        },
-        /* Metric 1 */
-        {
-            "type": "textarea",
-            "id": "metric-description-1",
-            "label": "1. Description",
-            "default": "Number of members"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-1",
-            "label": "1. Number",
-            "default": "72"
-        },   
-        /* Metric 2 */
-        {
-            "type": "textarea",
-            "id": "metric-description-2",
-            "label": "2. Description",
-            "default": "Audience reach (in-person events)"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-2",
-            "label": "2. Number",
-            "default": "4,710"
-        },     
-        /* Metric 3 */
-        {
-            "type": "textarea",
-            "id": "metric-description-3",
-            "label": "3. Description",
-            "default": "Community engagement (online events)"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-3",
-            "label": "3. Number",
-            "default": "1,200"
-        },
-        /* Metric 4 */
-        {
-            "type": "textarea",
-            "id": "metric-description-4",
-            "label": "4. Description",
-            "default": "Geographic spread (cities)"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-4",
-            "label": "4. Number",
-            "default": "34"
-        },
-        /* Metric 5 */
-        {
-            "type": "textarea",
-            "id": "metric-description-5",
-            "label": "5. Description",
-            "default": "Number of arrangements and commissions"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-5",
-            "label": "5. Number",
-            "default": "12"
-        },
-        /* Metric 6 */
-        {
-            "type": "textarea",
-            "id": "metric-description-6",
-            "label": "6. Description",
-            "default": "Educational impact (students reached)"
-        },
-        {
-            "type": "text",
-            "id": "metric-number-6",
-            "label": "6. Number",
-            "default": "1,663"
-        }
-    ]
+  "name": "Impact Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Impact Title",
+      "default": "Our impact at a glance"
+    },
+    /* Metric 1 */
+    {
+      "type": "textarea",
+      "id": "metric-description-1",
+      "label": "1. Description",
+      "default": "Number of members"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-1",
+      "label": "1. Number",
+      "default": "72"
+    },
+    /* Metric 2 */
+    {
+      "type": "textarea",
+      "id": "metric-description-2",
+      "label": "2. Description",
+      "default": "Audience reach (in-person events)"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-2",
+      "label": "2. Number",
+      "default": "4,710"
+    },
+    /* Metric 3 */
+    {
+      "type": "textarea",
+      "id": "metric-description-3",
+      "label": "3. Description",
+      "default": "Community engagement (online events)"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-3",
+      "label": "3. Number",
+      "default": "1,200"
+    },
+    /* Metric 4 */
+    {
+      "type": "textarea",
+      "id": "metric-description-4",
+      "label": "4. Description",
+      "default": "Geographic spread (cities)"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-4",
+      "label": "4. Number",
+      "default": "34"
+    },
+    /* Metric 5 */
+    {
+      "type": "textarea",
+      "id": "metric-description-5",
+      "label": "5. Description",
+      "default": "Number of arrangements and commissions"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-5",
+      "label": "5. Number",
+      "default": "12"
+    },
+    /* Metric 6 */
+    {
+      "type": "textarea",
+      "id": "metric-description-6",
+      "label": "6. Description",
+      "default": "Educational impact (students reached)"
+    },
+    {
+      "type": "text",
+      "id": "metric-number-6",
+      "label": "6. Number",
+      "default": "1,663"
+    }
+  ]
 }
 {% endschema %}

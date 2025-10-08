@@ -27,42 +27,75 @@
     border: 1px solid transparent;
     border-radius: var(--radius-round);
     background-color: var(--color-orange-light);
-    }
+  }
   .wwd-link-card svg {
     fill: var(--color-contrast);
   }
+  /* ---------------- Tablet ----------------*/
 
+  @media (max-width: 1224px) {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-gutter);
+      padding: 0 var(--space-page-margin);
+    }
+    .wwd-card {
+      grid-column: span 4;
+    }
+  }
+
+  /* ---------------- Mobile ----------------*/
+  @media (max-width: 768px) {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-gutter);
+      padding: 0 var(--space-page-margin);
+    }
+    .wwd-card {
+      grid-column: span 6;
+    }
+    .wwd-link-card {
+      grid-column: span 6;
+      aspect-ratio: 1 / 1;
+    }
+    .what-we-do-wrapper img {
+      grid-column: span 6;
+
+    }
+  }
 </style>
 
 <section class="what-we-do-wrapper container">
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-1'] }}</h4>
-    <p class="description">{{ section.settings['description-1'] }}</p>
+    <p class="description p-small">{{ section.settings['description-1'] }}</p>
   </div>
 
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-2'] }}</h4>
-    <p class="description">{{ section.settings['description-2'] }}</p>
+    <p class="description p-small">{{ section.settings['description-2'] }}</p>
   </div>
 
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-3'] }}</h4>
-    <p class= "description">{{ section.settings['description-3'] }}</p>
+    <p class="description p-small">{{ section.settings['description-3'] }}</p>
   </div>
 
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-4'] }}</h4>
-    <p class="description">{{ section.settings['description-4'] }}</p>
+    <p class="description p-small">{{ section.settings['description-4'] }}</p>
   </div>
 
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-5'] }}</h4>
-    <p class="description">{{ section.settings['description-5'] }}</p>
+    <p class="description p-small">{{ section.settings['description-5'] }}</p>
   </div>
 
   <div class="wwd-card">
     <h4 class="title">{{ section.settings['title-6'] }}</h4>
-    <p class="description">{{ section.settings['description-6'] }}</p>
+    <p class="description p-small">{{ section.settings['description-6'] }}</p>
   </div>
 
   <img
@@ -73,11 +106,10 @@
     height="auto"
   >
 
-    <a href="#" class="wwd-link-card rand-hover">
-      {% render 'icon-up-right' %} 
-      <h4>Contact us</h4>
-    </a>
-
+  <a href="#" class="wwd-link-card rand-hover">
+    {% render 'icon-up-right' %}
+    <h4>Contact us</h4>
+  </a>
 </section>
 
 {% schema %}
