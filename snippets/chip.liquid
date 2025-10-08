@@ -1,0 +1,40 @@
+{%- comment -%}
+  Snippet: chip
+  Usage examples:
+    {% render 'chip', text: 'CBC' %}
+    {% render 'chip', text: block.settings.chip_text, variant: 'outline' %}
+
+  Params:
+    text    (required) — string to display on the chip
+    variant (optional) — 'solid' (default) | 'outline' | 'ghost'
+{%- endcomment -%}
+
+
+<style>
+  .chip {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 3px var(--space-xs);
+    border-radius: var(--radius-round);
+    background-color: var(--color-contrast);
+    gap: var(--space-xxs);
+  }
+  .chip .p {
+    color: var(--color-bg-hover);
+  }
+
+  .chip-indicator {
+    width: 10px;
+    height: 8px;
+    border-radius: var(--radius-round);
+    background-color: var(--color-bg-hover);
+  }
+</style>
+
+
+  <div class="chip chip--{{ chip_variant | escape }}">
+    <div class="chip-indicator"></div>
+    <p class="p">Past event</p>
+  </div>
+

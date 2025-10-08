@@ -1,0 +1,75 @@
+<style>
+.past-event {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    text-decoration: none;
+    justify-content: space-between;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--color-contrast);
+    margin-top: -1px;
+    margin-left: -1px;
+    background-color: var(--color-bg-hover);
+}
+.past-event:hover {
+        background: var(--color-bg-hover);
+        border-radius: 999px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+}
+.past-leading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.past-top-left p, .past-top-right p {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-contrast);
+    font-size: var(--font-size-body-small);
+}
+.past-top-left, .past-top-right {
+    width: 50%;
+}
+.past-top-right {
+    text-align: right;
+    opacity: 0.7;
+}
+.past-title-group .past-title {
+    margin-bottom: var(--space-xxs);
+    opacity: 0.7;
+}
+.past-description {
+    opacity: 0.7;
+}
+
+
+
+</style>
+
+{% assign event_link = link %}
+{% assign event_date = date %}
+{% assign event_location = location %}
+{% assign event_title = title %}
+{% assign event_description = description %}
+
+<a  href="{{ event_link }}" 
+    class="past-event">
+        <div class="past-leading">
+            <div class="past-top-left">
+                {% render 'chip', text: 'Past event' %}
+            </div>
+
+            <div class="past-top-right">
+                <p class="past-time">{{ event_date }}</p>
+                <p class="past-location">{{ event_location }}</p>
+            </div>
+        </div>
+
+        <div class="past-title-group">
+            <h3 class="past-title">{{ event_title }}</h3>
+            <p class="past-description p-small"> {{ event_description }}</p>
+        </div>
+ </a>

@@ -1,13 +1,28 @@
 {% for block in section.blocks %}
- {% render 'event-snippet',
+  {% if block.settings.event_status == 'past' %}
+
+  {% render 'past-event-snippet',
   link: block.settings.event-link,
-  day: block.settings.day, 
-  date: block.settings.date, 
-  time: block.settings.time, 
-  location: block.settings.location, 
-  title: block.settings.title, 
-  description: block.settings.description, 
-%}
+  date: block.settings.date,
+  location: block.settings.location,
+  title: block.settings.title,
+  description: block.settings.description,
+  %}
+
+  {% else %}
+
+  {% render 'event-snippet',
+  link: block.settings.event-link,
+  day: block.settings.day,
+  date: block.settings.date,
+  time: block.settings.time,
+  location: block.settings.location,
+  title: block.settings.title,
+  description: block.settings.description,
+  %}
+
+  {% endif %}
+
 {% endfor %}
 
 {% schema %}
@@ -19,6 +34,16 @@
       "type": "event",
       "name": "Event",
       "settings": [
+        {
+          "type": "select",
+          "id": "event_status",
+          "label": "Event Status",
+          "default": "upcoming",
+          "options": [
+            { "value": "upcoming", "label": "Upcoming" },
+            { "value": "past", "label": "Past" }
+          ]
+        },
         {
           "type": "text",
           "id": "title",
