@@ -1,12 +1,10 @@
-{% for block in section.blocks %}
+{% for event in metaobjects.event.values %}
  {% render 'event-snippet',
-  link: block.settings.event-link,
-  day: block.settings.day, 
-  date: block.settings.date, 
-  time: block.settings.time, 
-  location: block.settings.location, 
-  title: block.settings.title, 
-  description: block.settings.description, 
+  link: event.link,
+  datetime: event.datetime,  
+  location: event.location, 
+  title: event.title, 
+  description: event.description, 
 %}
 {% endfor %}
 
