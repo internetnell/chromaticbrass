@@ -36,30 +36,22 @@
 
 </style>
 
-{% assign event_link = link %}
-{% assign event_day = day %}
-{% assign event_date = date %}
-{% assign event_time = time %}
-{% assign event_location = location %}
-{% assign event_title = title %}
-{% assign event_description = description %}
-
-<a  href="{{ event_link }}" 
+<a target="_blank" href="{{ link }}" 
     class="event rand-hover">
         <div class="leading">
             <div class="top-left">
-                <p class="day">{{ event_day }}</p>
-                <p class="date">{{ event_date }}</p>
+                <p class="day">{{ datetime | date: '%A' }}</p>
+                <p class="date">{{ datetime | date: '%b %d' }}</p>
             </div>
 
             <div class="top-right">
-                <p class="time">{{ event_time }}</p>
-                <p class="location">{{ event_location }}</p>
+                <p class="time">{{ datetime | date: '%l %p %Z' }}</p>
+                <p class="location">{{ location }}</p>
             </div>
         </div>
 
         <div class="title-group">
-            <h3 class="title">{{ event_title }}</h3>
-            <p class="description p-small"> {{ event_description }}</p>
+            <h3 class="title">{{ title }}</h3>
+            <p class="description p-small"> {{ description }}</p>
         </div>
  </a>

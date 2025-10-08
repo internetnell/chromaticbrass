@@ -1,27 +1,26 @@
-{% for block in section.blocks %}
+{% for event in metaobjects.event.values %}
+  
   {% if block.settings.event_status == 'past' %}
 
-  {% render 'past-event-snippet',
-  link: block.settings.event-link,
-  date: block.settings.date,
-  location: block.settings.location,
-  title: block.settings.title,
-  description: block.settings.description,
-  %}
+  {% render 'past-event-snippet'
+  link: event.link,
+  day: event.day,
+  date: event.date,
+  time: event.time,
+  location: event.location,
+  title: event.title,
+  description: event.description,
+%}
 
   {% else %}
 
-  {% render 'event-snippet',
-  link: block.settings.event-link,
-  day: block.settings.day,
-  date: block.settings.date,
-  time: block.settings.time,
-  location: block.settings.location,
-  title: block.settings.title,
-  description: block.settings.description,
-  %}
-
-  {% endif %}
+ {% render 'event-snippet',
+  link: event.link,
+  datetime: event.datetime,  
+  location: event.location, 
+  title: event.title, 
+  description: event.description, 
+%}   
 
 {% endfor %}
 
@@ -43,47 +42,6 @@
             { "value": "upcoming", "label": "Upcoming" },
             { "value": "past", "label": "Past" }
           ]
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Event Title",
-          "default": "Sample Event"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Event Description",
-          "default": "Afrofuturism, by Shanyse Strickland (1991), is a piece Theresa May commissioned in 2021 and is written for solo trumpet with pedal effects and piano accompaniment."
-        },
-        {
-          "type": "text",
-          "id": "day",
-          "label": "Day of Event",
-          "default": "Friday"
-        },
-        {
-          "type": "text",
-          "id": "date",
-          "label": "Date",
-          "default": "Feb 17"
-        },
-        {
-          "type": "text",
-          "id": "time",
-          "label": "Time",
-          "default": "1:00 PM EST"
-        },
-        {
-          "type": "text",
-          "id": "location",
-          "label": "Location",
-          "default": "San Francisco"
-        },
-        {
-          "type": "url",
-          "id": "event-link",
-          "label": "Event url"
         }
       ]
     }
@@ -91,12 +49,7 @@
   "presets": [
     {
       "name": "Events Section",
-      "category": "Custom Sections",
-      "blocks": [
-        {
-          "type": "event"
-        }
-      ]
+      "category": "Custom Sections"
     }
   ]
 }
