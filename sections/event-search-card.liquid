@@ -42,7 +42,8 @@
     }
 </style>
 <div class="event-controls container">
-    <input type="text" placeholder="Search" aria-label="Search events" class="search">
+    <input type="text" placeholder="Search" aria-label="Search events" class="search"
+        onchange="onSearchChange(this.value)">
     <select type="text" placeholder="Select" aria-label="Select" class="select" id="sortSelect"
         onchange="onSelect(this.value)">
         <option selected value="All">Sort By: All</option>
@@ -86,7 +87,6 @@
     function filterByUpcoming() {
         const events = document.getElementsByClassName("sortable-event");
         const now = Date.now();
-        const toRemove = [];
         const filtered = Array.from(events).filter((e, index) => {
             if (now > new Date(e.dataset.date)) {
                 if (!e.classList.contains("hidden-event")) {
@@ -105,7 +105,6 @@
     function filterByPassed() {
         const events = document.getElementsByClassName("sortable-event");
         const now = Date.now();
-        const toRemove = [];
         const filtered = Array.from(events).filter((e, index) => {
             if (now < new Date(e.dataset.date)) {
                 if (!e.classList.contains("hidden-event")) {
@@ -125,8 +124,39 @@
         select.options[prevIndex].innerHTML = select.options[prevIndex].value;
         select.options[select.selectedIndex].text = "Sort by: " + val;
         prevIndex = select.selectedIndex;
+        SortBasedOnValue(val);
+    }
 
-        // Call sort here
+    function onSearchChange(val) {
+        sortByDateDesc();
+        if (val.trim() === "") {
+            SortBasedOnValue(select.options[select.selectedIndex].value)
+            return;
+        }
+
+        const events = document.getElementsByClassName("sortable-event");
+        const filtered = Array.from(events).filter((e, index) => {
+            if (!e.dataset.title.toLowerCase().includes(val.toLowerCase())) {
+                if (!e.classList.contains("hidden-event")) {
+                    e.classList.add("hidden-event");
+                }
+
+                return false;
+            }
+
+            if (e.classList.contains("hidden-event")) {
+                e.classList.remove("hidden-event");
+            }
+
+            return true;
+        });
+
+        filtered.forEach(e => {
+            document.getElementById("events").appendChild(e);
+        });
+    }
+
+    function SortBasedOnValue(val) {
         switch (val) {
             case "Upcoming":
                 filterByUpcoming();
@@ -140,6 +170,7 @@
         }
     }
 
+    // Populate list with all events
     sortByDateDesc();
 </script>
 
