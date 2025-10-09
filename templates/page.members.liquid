@@ -1,10 +1,17 @@
 <style>
     .member-list {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: -1px;
+        margin-left: -1px;
+        row-gap: 50px;
+    }
+
+    .leaders {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .outest {
-
         padding-left: 60px;
         padding-right: 60px;
     }
@@ -30,10 +37,21 @@
         <div class="members-list-title">
             Leadership
         </div>
+        <div class="member-list leaders">
+            {% render 'member-snippet', name: "Willy", title: "Silly", pictureUrl: "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-1.png?v=1756771221" %}
+            {% render 'member-snippet', name: "Idk", title: "Playing on their horn", pictureUrl: "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/navilla.png?v=1758758249"%}
+            {% render 'member-snippet', name: "Three", title: "Im tapped outta titles", pictureUrl: "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/group-3.png?v=1757005261" %}
+        </div>
+    </div>
+    <div class="outest">
+        <div class="members-list-title">
+            Members
+        </div>
         <div class="member-list">
-            {% render 'member-snippet', name: "Willy", title: "Silly" %}
-            {% render 'member-snippet', name: "Idk", title: "Playing on their horn" %}
-            {% render 'member-snippet', name: "Three", title: "Im tapped outta titles" %}
+            {% for member in metaobjects.member.values %}
+                {% assign url = member.picture | file_url %}
+                {% render 'member-snippet', name: member.name, title: member.title, pictureUrl: url %}
+            {% endfor %}
         </div>
     </div>
 </main>

@@ -1,14 +1,18 @@
 <style>
+    .member-snippet-container {
+        display: flex;
+        flex-direction: column;
+        outline: 0.5px solid var(--color-contrast);
+        margin-top: 1px;
+        margin-left: 1px;
+    }
+
     .member-info {
         padding: var(--space-md);
         gap: var(--space-s);
         display: flex;
         flex-direction: column;
         border-top: 0.5px solid var(--color-contrast);
-    }
-    
-    .member-img {
-        width: 100%;
     }
 
     .member-name {
@@ -32,18 +36,10 @@
         font-weight: 400;
         line-height: 100%;
     }
-
-    .member-snippet-container {
-        flex-basis: 100%;
-        display: flex;
-        flex-direction: column;
-        border: 0.5px solid var(--color-contrast);
-    }
-
 </style>
 
 <div class="member-snippet-container">
-    <img class="member-img" src="https://cdn.shopify.com/s/files/1/0757/8465/0993/files/player-4.png?v=1757005261">
+    <img class="member-img" src="{{pictureUrl}}">
     <div class="member-info">
         <div class="member-name">
             {{name}}
