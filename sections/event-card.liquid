@@ -1,51 +1,17 @@
 {% for event in metaobjects.event.values %}
-  
-  {% if block.settings.event_status == 'past' %}
-
-  {% render 'past-event-snippet'
-  link: event.link,
-  day: event.day,
-  date: event.date,
-  time: event.time,
-  location: event.location,
-  title: event.title,
-  description: event.description,
-%}
-
-  {% else %}
-
  {% render 'event-snippet',
   link: event.link,
   datetime: event.datetime,  
   location: event.location, 
   title: event.title, 
-  description: event.description, 
-%}   
-
-{% endif %}
+  description: event.description,
+  %}
+{% endfor %}
 
 {% schema %}
 {
   "name": "Events Section",
   "settings": [],
-  "blocks": [
-    {
-      "type": "event",
-      "name": "Event",
-      "settings": [
-        {
-          "type": "select",
-          "id": "event_status",
-          "label": "Event Status",
-          "default": "upcoming",
-          "options": [
-            { "value": "upcoming", "label": "Upcoming" },
-            { "value": "past", "label": "Past" }
-          ]
-        }
-      ]
-    }
-  ],
   "presets": [
     {
       "name": "Events Section",
@@ -53,4 +19,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
