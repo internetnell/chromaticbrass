@@ -1,158 +1,34 @@
 <style>
+  /* Minimal overlay nav — fade in/out only */
   .nav {
     position: fixed;
-    left: 0;
-    top: 0;
+    inset: 0;
+    z-index: 999;
     width: 100%;
     height: 100vh;
-    overflow-x: hidden;
-    z-index: 1;
-    pointer-events: none;
+    background: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/nav-bg.png?v=1760047425') center top / cover no-repeat;
+    opacity: 0;                 /* hidden by default */
+    visibility: hidden;         /* keep out of a11y tree/clicks */
+    pointer-events: none;       /* don't block page when closed */
+    transition: opacity 700ms ease; /* slow fade in/out */
   }
-
   .nav.is-open {
-    pointer-events: auto;
-    z-index: 999;
-    backdrop-filter: blur(10px) saturate(115%);
-    -webkit-backdrop-filter: blur(10px) saturate(115%);
-  }
-
-  .nav .nav-overlay {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--nav-smear-dur) var(--nav-smear-ease), visibility 0s linear var(--nav-smear-dur);
-  }
-
-  .nav.is-open .nav-overlay {
     opacity: 1;
     visibility: visible;
-    transition: opacity var(--nav-smear-dur) var(--nav-smear-ease);
+    pointer-events: auto;
   }
 
-  /* === Smear background === */
-  :root {
-    --nav-smear-dur: 0.75s;
-    --nav-smear-ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --smear-peek: 30px;          /* 30px peek at the top when closed */
-    --smear-softness: 28px;      /* blur amount matching painter */
-  }
+  /* Keep your content above the background image */
+  .nav .nav-overlay { position: relative; z-index: 1; }
 
-  .nav .smear {
-    position: absolute;
-    inset: 0;
-    transform: translateY(calc(-100% + var(--smear-peek))); /* peek 10px at the top */
-    transition: transform var(--nav-smear-dur) var(--nav-smear-ease), opacity var(--nav-smear-dur) ease;
-    will-change: transform, filter;
-    filter: blur(var(--smear-softness));
-    opacity: 1;
-    z-index: 0;
-    pointer-events: none;
-
-    /* Closed state look */
-    mix-blend-mode: multiply;                 /* readable page when closed */
-    opacity: .6;                              /* lighter tint when closed */
-    backdrop-filter: blur(6px) saturate(110%);/* blur the page behind the peek */
-    -webkit-backdrop-filter: blur(6px) saturate(110%);
-    overflow: hidden;                         /* contain blur spill */
-    /* Feather the top edge so it sits softly on the page */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 12px);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 12px);
-  }
-
-  .nav .smear.is-open {
-    transform: translateY(0);
-    mix-blend-mode: normal;                   /* remove multiply so BG isn't readable */
-    opacity: .95;                             /* richer tint when open */
-    -webkit-mask-image: linear-gradient(to bottom,
-      rgba(0,0,0,0) 0,
-      rgba(0,0,0,1) 12px,
-      rgba(0,0,0,1) calc(100% - 16px),
-      rgba(0,0,0,0) 100%
-    );
-            mask-image: linear-gradient(to bottom,
-      rgba(0,0,0,0) 0,
-      rgba(0,0,0,1) 12px,
-      rgba(0,0,0,1) calc(100% - 16px),
-      rgba(0,0,0,0) 100%
-    );
-    backdrop-filter: blur(14px) saturate(115%); /* stronger blur when open */
-    -webkit-backdrop-filter: blur(14px) saturate(115%);
-    filter: none;                              /* remove extra container blur */
-  }
-
-  .nav .smear-bg {
-    position: absolute;
-    inset: 0;                                  /* no overspill, peek reads true */
-    filter: blur(28px) saturate(110%);
-    opacity: 0.9;
-    background-color: hsla(237, 55%, 80%, 1);
-    background-image:
-      radial-gradient(at 10% 75%, hsla(7, 60%, 65%, 1) 0px, transparent 50%),
-      radial-gradient(at 95% 5%, hsla(209, 86%, 63%, 1) 0px, transparent 50%),
-      radial-gradient(at 42% 53%, hsla(0, 0%, 100%, 0.4) 0px, transparent 50%),
-      radial-gradient(at 84% 63%, hsla(73, 74%, 60%, 1) 0px, transparent 50%),
-      radial-gradient(at 32% 78%, hsla(251, 70%, 75%, 1) 0px, transparent 50%),
-      radial-gradient(at 24% 31%, hsla(284, 64%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 61% 73%, hsla(7, 77%, 77%, 1) 0px, transparent 50%),
-      radial-gradient(at 84% 97%, hsla(97, 53%, 64%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 0%, hsla(281, 81%, 60%, 0.81) 0px, transparent 50%),
-      radial-gradient(at 65% 7%, hsla(178, 69%, 68%, 1) 0px, transparent 50%);
-  }
-
-  .nav .smear-glow {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .nav .smear-glow:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -10%;
-    height: 60%;
-    background: radial-gradient(100% 80% at 50% 100%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 60%);
-  }
-
-  .nav .nav-overlay {
-    position: relative;
-    z-index: 1;
-  }
-
-  .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-bottom: var(--space-sm);
-  }
-
-  .nav-overlay button {
-    grid-column: 15 / span 1;
-  }
-
-  .nav-overlay ul {
-    margin: 0;
-    padding: 0;
-    grid-column: 1 / span 16;
-  }
-
-  .nav-link {
-    color: var(--color-bg);
-    text-decoration: none;
-  }
+  /* Basic list/link reset (optional—remove if already in theme) */
+  .nav-list { list-style: none; margin: 0; padding: 0; }
+  .nav-link { text-decoration: none; }
 </style>
 
-<nav class="nav js-nav">
-  <!-- Smear backdrop -->
-  <div class="smear" aria-hidden="true">
-    <div class="smear-bg"></div>
-    <div class="smear-glow"></div>
-  </div>
-
-  <!-- Nav content -->
+<nav class="nav js-nav" aria-hidden="true">
   <div class="nav-overlay container">
-    <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</button>
+    <button type="button" class="closebtn" onclick="closeNav()">close</button>
 
     <ul>
       {% for link in linklists['main-nav'].links %}
@@ -165,67 +41,31 @@
 </nav>
 
 <script>
-  // Force a CSS transition to replay by removing a class,
-  // forcing reflow, then re-adding it.
-  function restartTransition(el, className) {
-    if (!el) return;
-    el.classList.remove(className);
-    // force reflow so the browser commits the "off" state
-    void el.offsetWidth; // or: el.getBoundingClientRect();
-    el.classList.add(className);
-  }
-
-  function openNav(e) {
-    if (e) e.preventDefault();
+  function openNav(e){
+    if(e) e.preventDefault();
     const nav = document.querySelector('.js-nav');
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (!nav) return;
-
-    // ensure closed/base state first
-    nav.classList.remove('is-open');
-
-    // smear: always replay the slide-down-from-top to fully cover
-    const smear = nav.querySelector('.smear');
-    restartTransition(smear, 'is-open');
-
-    // now fade in content & enable pointer events
-    restartTransition(nav, 'is-open');
-
-    if (navToggler) {
-      navToggler.classList.add('active');
-      navToggler.setAttribute('aria-expanded', 'true');
-    }
+    const toggler = document.querySelector('.js-nav-toggler');
+    if(!nav) return;
+    nav.classList.add('is-open');
+    nav.setAttribute('aria-hidden','false');
+    if(toggler){ toggler.classList.add('active'); toggler.setAttribute('aria-expanded','true'); }
     document.body.classList.add('no-scroll');
   }
 
-  function closeNav(e) {
-    if (e) e.preventDefault();
+  function closeNav(e){
+    if(e) e.preventDefault();
     const nav = document.querySelector('.js-nav');
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (!nav) return;
-
-    // content fades out (CSS handles opacity/visibility)
+    const toggler = document.querySelector('.js-nav-toggler');
+    if(!nav) return;
     nav.classList.remove('is-open');
-
-    // smear slides back up to the 10px peek at the top (animates, not snap)
-    const smear = nav.querySelector('.smear');
-    if (smear) smear.classList.remove('is-open');
-
-    if (navToggler) {
-      navToggler.classList.remove('active');
-      navToggler.setAttribute('aria-expanded', 'false');
-    }
+    nav.setAttribute('aria-hidden','true');
+    if(toggler){ toggler.classList.remove('active'); toggler.setAttribute('aria-expanded','false'); }
     document.body.classList.remove('no-scroll');
   }
 
-  // Wire up triggers
   document.addEventListener('DOMContentLoaded', () => {
-    const navToggler = document.querySelector('.js-nav-toggler');
-    if (navToggler) navToggler.addEventListener('click', openNav);
-
-    // Escape closes
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeNav(e);
-    });
+    const toggler = document.querySelector('.js-nav-toggler');
+    if(toggler){ toggler.addEventListener('click', openNav); }
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(e); });
   });
 </script>
