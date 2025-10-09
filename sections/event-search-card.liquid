@@ -4,7 +4,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         padding: 0;
-        
+
         margin: 0 var(--space-page-margin);
     }
 
@@ -43,9 +43,14 @@
 </style>
 <div class="event-controls container">
     <input type="text" placeholder="Search" aria-label="Search events" class="search">
-    <input type="text" placeholder="Select" aria-label="Select" class="select">
+    <select type="text" placeholder="Select" aria-label="Select" class="select" id="sortSelect"
+        onchange="onSelect(this.value)">
+        <option selected value="All">Sort By: All</option>
+        <option value="Upcoming">Upcoming</option>
+        <option value="Past">Past</option>
+    </select>
 </div>
-<div class="events-list">
+<div class="events-list" id="events">
     {% for event in metaobjects.event.values %}
     {% render 'event-snippet',
     link: event.link,
@@ -56,6 +61,87 @@
     %}
     {% endfor %}
 </div>
+
+<script>
+    const select = document.getElementById("sortSelect");
+    let prevIndex = 0;
+    select.selectedIndex = 0;
+
+    function sortByDateDesc() {
+        const events = document.getElementsByClassName("sortable-event");
+        console.log(events);
+
+        const sorted = Array.from(events).sort((a, b) => {
+            return new Date(b.dataset.date) - new Date(a.dataset.date);
+        });
+
+        sorted.forEach(e => {
+            if (e.classList.contains("hidden-event")) {
+                e.classList.remove("hidden-event");
+            }
+            document.getElementById("events").appendChild(e);
+        });
+    }
+
+    function filterByUpcoming() {
+        const events = document.getElementsByClassName("sortable-event");
+        const now = Date.now();
+        const toRemove = [];
+        const filtered = Array.from(events).filter((e, index) => {
+            if (now > new Date(e.dataset.date)) {
+                if (!e.classList.contains("hidden-event")) {
+                    e.classList.add("hidden-event");
+                }
+            }
+
+            return now < new Date(e.dataset.date);
+        });
+
+        filtered.forEach(e => {
+            document.getElementById("events").appendChild(e);
+        });
+    }
+
+    function filterByPassed() {
+        const events = document.getElementsByClassName("sortable-event");
+        const now = Date.now();
+        const toRemove = [];
+        const filtered = Array.from(events).filter((e, index) => {
+            if (now < new Date(e.dataset.date)) {
+                if (!e.classList.contains("hidden-event")) {
+                    e.classList.add("hidden-event");
+                }
+            }
+
+            return now > new Date(e.dataset.date);
+        });
+
+        filtered.forEach(e => {
+            document.getElementById("events").appendChild(e);
+        });
+    }
+
+    function onSelect(val) {
+        select.options[prevIndex].innerHTML = select.options[prevIndex].value;
+        select.options[select.selectedIndex].text = "Sort by: " + val;
+        prevIndex = select.selectedIndex;
+
+        // Call sort here
+        switch (val) {
+            case "Upcoming":
+                filterByUpcoming();
+                break;
+            case "Past":
+                filterByPassed();
+                break;
+            default:
+                sortByDateDesc();
+                break;
+        }
+    }
+
+    sortByDateDesc();
+</script>
 
 {% schema %}
 {
@@ -69,3 +155,6 @@
 ]
 }
 {% endschema %}
+
+{% comment %} Add dropdown, on dropdown click run the sorter {% endcomment %}
+{% comment %} Will we reach a limit of events? {% endcomment %}
