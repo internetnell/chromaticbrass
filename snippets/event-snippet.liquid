@@ -65,6 +65,10 @@
     .past-description {
         opacity: 0.7;
     }
+
+    .hidden-event {
+        display: none;
+    }
 </style>
 
 {% liquid
@@ -78,7 +82,7 @@ if then <= now
 endif
 %}
 
-<a target="_blank" href="{{ link }}" class="{{classname}} rand-hover">
+<a target="_blank" href="{{ link }}" class="{{classname}} rand-hover sortable-event" data-date="{{datetime}}" data-title="{{title}}">
     <div class="leading">
         <div class="top-left">
             {% if isPast %}
