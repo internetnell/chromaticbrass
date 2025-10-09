@@ -1,0 +1,71 @@
+<style>
+    .events-list {
+        grid-column: 1 / span 16;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 0;
+        
+        margin: 0 var(--space-page-margin);
+    }
+
+    .event-controls {
+        display: grid;
+        margin-bottom: var(--space-md);
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-left: var(--space-page-margin);
+        margin-right: var(--space-page-margin);
+    }
+
+    .search {
+        grid-column: 1 / span 4;
+    }
+
+    .select {
+        grid-column: 13 / span 4;
+    }
+
+    /* ---------------- Tablet ----------------*/
+    @media (max-width: 1024px) {
+        .events-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-column: 1 / span 16;
+        }
+    }
+
+    /* ---------------- Mobile ----------------*/
+    @media (max-width: 768px) {
+        .events-list {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-column: 1 / span 16;
+        }
+    }
+</style>
+<div class="event-controls container">
+    <input type="text" placeholder="Search" aria-label="Search events" class="search">
+    <input type="text" placeholder="Select" aria-label="Select" class="select">
+</div>
+<div class="events-list">
+    {% for event in metaobjects.event.values %}
+    {% render 'event-snippet',
+    link: event.link,
+    datetime: event.datetime,
+    location: event.location,
+    title: event.title,
+    description: event.description,
+    %}
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+"name": "Events Section",
+"settings": [],
+"presets": [
+{
+"name": "Events Section",
+"category": "Custom Sections"
+}
+]
+}
+{% endschema %}
