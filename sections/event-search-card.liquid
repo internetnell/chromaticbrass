@@ -83,7 +83,16 @@
         });
     }
 
+    function refreshList() {
+        Array.from(document.getElementsByClassName("sortable-event")).forEach(e => {
+            if (e.classList.contains("hidden-event")) {
+                e.classList.remove("hidden-event");
+            }
+        })
+    }
+
     function filterByUpcoming() {
+        refreshList();
         const events = document.getElementsByClassName("sortable-event");
         const now = Date.now();
         const filtered = Array.from(events).filter((e, index) => {
@@ -102,6 +111,7 @@
     }
 
     function filterByPassed() {
+        refreshList();
         const events = document.getElementsByClassName("sortable-event");
         const now = Date.now();
         const filtered = Array.from(events).filter((e, index) => {
@@ -127,7 +137,7 @@
     }
 
     function onSearchChange(val) {
-        sortByDateDesc();
+        refreshList();
         if (val.trim() === "") {
             SortBasedOnValue(select.options[select.selectedIndex].value)
             return;
@@ -169,7 +179,7 @@
         }
     }
 
-    // Populate list with all events
+    // Sort by descending order initially
     sortByDateDesc();
 </script>
 
