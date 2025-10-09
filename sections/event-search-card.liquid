@@ -70,7 +70,6 @@
 
     function sortByDateDesc() {
         const events = document.getElementsByClassName("sortable-event");
-        console.log(events);
 
         const sorted = Array.from(events).sort((a, b) => {
             return new Date(b.dataset.date) - new Date(a.dataset.date);
