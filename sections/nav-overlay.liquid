@@ -33,8 +33,8 @@
   :root {
     --nav-smear-dur: 0.75s;
     --nav-smear-ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --smear-peek: 10px;
-    --smear-softness: 28px;
+    --smear-peek: 30px;          /* 30px peek at the top when closed */
+    --smear-softness: 28px;      /* blur amount matching painter */
   }
 
   .nav .smear {
@@ -49,28 +49,40 @@
     pointer-events: none;
 
     /* Closed state look */
-    mix-blend-mode: multiply;
-    opacity: .6;
-    backdrop-filter: blur(6px) saturate(110%);
+    mix-blend-mode: multiply;                 /* readable page when closed */
+    opacity: .6;                              /* lighter tint when closed */
+    backdrop-filter: blur(6px) saturate(110%);/* blur the page behind the peek */
     -webkit-backdrop-filter: blur(6px) saturate(110%);
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    overflow: hidden;                         /* contain blur spill */
+    /* Feather the top edge so it sits softly on the page */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 12px);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,1) 12px);
   }
 
   .nav .smear.is-open {
     transform: translateY(0);
-    mix-blend-mode: normal;
-    opacity: .95;
-    -webkit-mask-image: none;
-            mask-image: none;
-    backdrop-filter: blur(14px) saturate(115%);
+    mix-blend-mode: normal;                   /* remove multiply so BG isn't readable */
+    opacity: .95;                             /* richer tint when open */
+    -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0,
+      rgba(0,0,0,1) 12px,
+      rgba(0,0,0,1) calc(100% - 16px),
+      rgba(0,0,0,0) 100%
+    );
+            mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0,
+      rgba(0,0,0,1) 12px,
+      rgba(0,0,0,1) calc(100% - 16px),
+      rgba(0,0,0,0) 100%
+    );
+    backdrop-filter: blur(14px) saturate(115%); /* stronger blur when open */
     -webkit-backdrop-filter: blur(14px) saturate(115%);
+    filter: none;                              /* remove extra container blur */
   }
 
   .nav .smear-bg {
     position: absolute;
-    inset: 0;
+    inset: 0;                                  /* no overspill, peek reads true */
     filter: blur(28px) saturate(110%);
     opacity: 0.9;
     background-color: hsla(237, 55%, 80%, 1);
@@ -172,7 +184,7 @@
     // ensure closed/base state first
     nav.classList.remove('is-open');
 
-    // smear: always replay the slide-up
+    // smear: always replay the slide-down-from-top to fully cover
     const smear = nav.querySelector('.smear');
     restartTransition(smear, 'is-open');
 
@@ -195,7 +207,7 @@
     // content fades out (CSS handles opacity/visibility)
     nav.classList.remove('is-open');
 
-    // smear slides back down to the peek position (animates, not snap)
+    // smear slides back up to the 10px peek at the top (animates, not snap)
     const smear = nav.querySelector('.smear');
     if (smear) smear.classList.remove('is-open');
 
@@ -217,4 +229,3 @@
     });
   });
 </script>
-    filter: none;
