@@ -1,15 +1,133 @@
 <style>
+    .member-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: -1px;
+        margin-left: -1px;
+        row-gap: 50px;
+    }
+
+    .leaders {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .outest {
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-bottom: 100px;
+    }
+
+    .members-list-title {
+        color: var(--Neutral-contrast, #000);
+        leading-trim: both;
+        text-edge: cap;
+        font-family: var(--font-body, "Helvetica Now Display");
+        font-size: var(--size-h2, 40px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+        margin-bottom: 50px;
+    }
+
+    .member-snippet-container {
+        display: flex;
+        flex-direction: column;
+        outline: 0.5px solid var(--color-contrast);
+        margin-top: 1px;
+        margin-left: 1px;
+    }
+
+    .member-snippet-container .member-img {
+        max-height: 600px;
+    }
+
+    .member-info {
+        padding: var(--space-md);
+        gap: var(--space-s);
+        display: flex;
+        flex-direction: column;
+        border-top: 0.5px solid var(--color-contrast);
+    }
+
+    .member-name {
+        color: var(--color-contrast);
+        leading-trim: both;
+        text-edge: cap;
+        font-family: "Helvetica Now Display";
+        font-size: var(--size-h3, 26px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .member-title {
+        color: var(--color-contrast);
+        leading-trim: both;
+        text-edge: cap;
+        font-family: "Pragati";
+        font-size: var(--size-label-large, 18px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+    }
+
+    .member-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .members-testimonial {
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* REMOVE IF WE HAVE MULTIPLE TESTIMONIALS --WWALSH */
+    .members-testimonial .testimonial-topbar .progress {
+        display: none;
+    }
 </style>
 
-
-
-
 <main>
-
-  {% section 'page-title' %}
-
-  {% section 'members-cards' %}
-
-  
-
+    {% section 'page-title' %}
+    {% section 'members-cards' %}
+    <div class="members-testimonial">
+        {% section 'testimonial' %}
+    </div>
+    <div class="outest">
+        <div class="members-list-title">
+            Leadership
+        </div>
+        <div class="member-list leaders">
+            {% render 'member-snippet', name: "Yasmeen Richards", title: "President, Executive Director",
+            pictureUrl: "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/yasmeen.jpg?v=1760074863" %}
+            {% render 'member-snippet', name: "Portia Njoku", title: "Treasurer, Director of Fundraising", pictureUrl:
+            "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/portia.jpg?v=1760074863"%}
+            {% render 'member-snippet', name: "Navilla Burns", title: "Secretary, Director of Operations", pictureUrl:
+            "https://cdn.shopify.com/s/files/1/0757/8465/0993/files/navilla.jpg?v=1760074862" %}
+        </div>
+    </div>
+    <div class="outest">
+        <div class="members-list-title">
+            Members
+        </div>
+        <div class="member-list" id="allMembers">
+            {% for member in metaobjects.member.values %}
+            {% assign url = member.picture | file_url %}
+            {% render 'member-snippet', name: member.name, title: member.title, pictureUrl: url %}
+            {% endfor %}
+        </div>
+    </div>
 </main>
+
+<script>
+    const members = Array.from(document.querySelectorAll("#allMembers .member-snippet-container"));
+    const sorted = members.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+    sorted.forEach(m => document.getElementById("allMembers").appendChild(m));
+</script>
