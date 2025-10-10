@@ -131,7 +131,7 @@
 
     function onSelect(val) {
         select.options[prevIndex].innerHTML = select.options[prevIndex].value;
-        select.options[select.selectedIndex].text = "Sort by: " + val;
+        select.options[select.selectedIndex].text = "Sort By: " + val;
         prevIndex = select.selectedIndex;
         SortBasedOnValue(val);
     }

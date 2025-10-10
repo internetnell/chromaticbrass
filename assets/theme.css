@@ -401,6 +401,13 @@ input:focus-visible {
         outline-offset: .5px;
 }
 
+select {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-neutral-0);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-neutral-0);
+}
+
 textarea {
         padding: var(--space-xs) var(--space-sm);
         background: var(--color-neutral-0);
@@ -456,7 +463,3 @@ figcaption {
         color: var(--color-contrast);
         line-height: var(--line-height-body);
 }
-
-
-/* Chip Styles */
-
