@@ -7,45 +7,156 @@
     height: 100vh;
     overflow-x: hidden;
     z-index: 999;
-    background-image: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/inverted-bg.png?v=1759872113');
-  }
-  .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-bottom: var(--space-sm);
-  }
-  .nav-overlay button {
-    grid-column: 15 / span 1;
+    background: url('https://cdn.shopify.com/s/files/1/0757/8465/0993/files/nav-bg.png?v=1760047425') center top / cover
+      no-repeat;
+    backdrop-filter: blur(5px);
   }
 
-  .nav-overlay ul {
-    margin: 0;
-    padding: 0;
+  /** overlay header */
+  .overlay-header {
     grid-column: 1 / span 16;
+    display: flex;
+    justify-content: space-between;
+    height: 48.5px;
+    padding: var(--space-sm) 0;
+    align-items: center;
+    border-bottom: 1px solid var(--color-bg);
+    mix-blend-mode: difference;
+  }
+  .overlay-header p {
+    color: var(--color-bg);
+  }
+  /** overlay decoration */
+  .overlay-decoration {
+    grid-column: 1 / span 4;
   }
 
+
+  /** overlay main */
+  .overlay-main {
+    grid-column: 6 / span 12;
+  }
+
+  .nav-ul {
+    margin: 0;
+    padding: 0;
+  }
+  .nav-list-item {
+    list-style: none;
+    display: flex;
+    mix-blend-mode: difference;
+    align-items: center;
+    padding: var(--space-sm) 0;
+
+    border-bottom: 1px solid var(--color-bg);
+  }
   .nav-link {
     color: var(--color-bg);
     text-decoration: none;
+    font-size: var(--font-size-navigation);
+    width: 66.666%;
   }
+    .page-description {
+    color: var(--color-bg);
+    width: 33.33%;
+  }
+
+  /** overlay footer */
+  .overlay-footer {
+    grid-column: 1 / span 16;
+    align-items: center;
+    display: grid;
+    height: 32px;
+    padding: var(--space-sm) 0;
+    mix-blend-mode: difference;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - var(--space-page-margin) * 2);
+    background: transparent;
+    z-index: 1000;
+    margin: 0 var(--space-page-margin);
+  }
+
+  .overlay-footer p,
+  .overlay-footer a {
+    color: var(--color-bg);
+    text-decoration: none;
+  }
+  .overlay-footer p {
+    grid-column: 1 / span 5;
+    }
+  .overlay-fb {
+    grid-column: 6 / span 3;
+  }
+
+  .overlay-yt {
+    grid-column: 9 / span 4;
+    text-align: center;
+  }
+
+  .overlay-ig {
+    grid-column: 14 / span 3;
+    text-align: right;
+  }
+
+  /* ---------------- Tablet ----------------*/
+
+    @media (max-width: 1024px) {
+        .overlay-main {
+      grid-column: 1 / span 16;
+      }
+    }
+
 </style>
 
 <nav class="nav js-nav">
-    <div class="nav-overlay container">
-      <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</button>
+  <div class="nav-overlay container">
+    <!-- overlay-header -->
+    <div class="overlay-header">
+      <p>Chromatic Brass</p>
+      <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">Close</button>
+    </div>
 
-      <ul>
+    <!-- overlay-decoration -->
+    <div class="overlay-decoration">
+    </div>
+      
+    <!-- overlay-main -->
+    <div class="overlay-main">
+      <ul class="nav-ul">
         {% for link in linklists['main-nav'].links %}
-          <li class="h2 nav-list">
+          <li class="h2 nav-list-item">
             <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+            {% if forloop.index == 1 %}
+              <p class="page-description">{{ section.settings.desc1 }}</p>
+            {% elsif forloop.index == 2 %}
+              <p class="page-description">{{ section.settings.desc2 }}</p>
+            {% elsif forloop.index == 3 %}
+              <p class="page-description">{{ section.settings.desc3 }}</p>
+            {% elsif forloop.index == 4 %}
+              <p class="page-description">{{ section.settings.desc4 }}</p>
+            {% elsif forloop.index == 5 %}
+              <p class="page-description">{{ section.settings.desc5 }}</p>
+            {% elsif forloop.index == 6 %}
+              <p class="page-description">{{ section.settings.desc6 }}</p>
+            {% elsif forloop.index == 7 %}
+              <p class="page-description">{{ section.settings.desc7 }}</p>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
     </div>
+
+    <!-- overlay-footer -->
+    <div class="overlay-footer container">
+      <p>info@chromaticbrass.org</p>
+      <a class="overlay-fb link" href="https://www.facebook.com/ChromaticBrassCollective/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+      <a class="overlay-yt link" href="https://www.youtube.com/@cbc_brass" target="_blank" rel="noopener noreferrer" aria-label="Youtube">Youtube</a>
+      <a class="overlay-ig link" href="https://www.instagram.com/cbc_brass/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    </div>
+  </div>
 </nav>
-
-
 
 <script>
   function openNav(e) {
@@ -100,3 +211,60 @@
     });
   });
 </script>
+
+{% schema %}
+{
+  "name": "Page Descriptions",
+  "settings": [
+    /* Row 1 */
+    {
+      "type": "textarea",
+      "id": "desc1",
+      "label": "Description",
+      "default": "The future of brass music"
+    },
+    /* Row 2 */
+    {
+      "type": "textarea",
+      "id": "desc2",
+      "label": "Description",
+      "default": "How we create impact and empower our brass community"
+    },
+    /* Row 3 */
+    {
+      "type": "textarea",
+      "id": "desc3",
+      "label": "Description",
+      "default": "Collaborate with us! We offer partnerships, workshops, and more"
+    },
+    /* Row 4 */
+    {
+      "type": "textarea",
+      "id": "desc4",
+      "label": "Description",
+      "default": "Join us at upcoming performances and community gatherings"
+    },
+    /* Row 5 */
+    {
+      "type": "textarea",
+      "id": "desc5",
+      "label": "Description",
+      "default": "Meet our collective of inspiring brass musicians and learn more about membership"
+    },
+    /* Row 6 */
+    {
+      "type": "textarea",
+      "id": "desc6",
+      "label": "Description",
+      "default": "Discover our performances, commissions, and creative projects"
+    },
+    /* Row 7 */
+    {
+      "type": "textarea",
+      "id": "desc7",
+      "label": "Description",
+      "default": "See what the world is saying about Chromatic Brass"
+    }
+  ]
+}
+{% endschema %}
