@@ -47,7 +47,6 @@
     mix-blend-mode: difference;
     align-items: center;
     padding: var(--space-sm) 0;
-
     border-bottom: 1px solid var(--color-bg);
   }
   .nav-link {
@@ -59,6 +58,11 @@
     .page-description {
     color: var(--color-bg);
     width: 33.33%;
+  }
+  .nav-list-item a:hover{
+    color: var(--color-neutral-50);
+    mix-blend-mode: difference;
+    transition: color 0.0s ease-in-out;
   }
 
   /** overlay footer */
@@ -88,6 +92,10 @@
     }
   .overlay-fb {
     grid-column: 6 / span 3;
+  }
+  .overlay-footer a:hover{
+    opacity: 0.6;
+    transition: opacity 0.2s;
   }
 
   .overlay-yt {
